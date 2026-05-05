@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="el5wCc74fzXe6Z0xAGTaVbX9gyeDNGM7AfsSuJ8ZHUw" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Vibes Africa - Premier Creative Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         window.tailwind = window.tailwind || {};
         window.tailwind.config = {
@@ -22,8 +21,8 @@
                         'earth-blue': '#165466'
                     },
                     fontFamily: {
-                        heading: ['Century Gothic', 'Outfit', 'sans-serif'],
-                        body: ['Outfit', 'Inter', 'sans-serif']
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif']
                     }
                 }
             }
@@ -38,8 +37,8 @@
             --bloom: #95B71A;
             --lake-blue: #5AC1D7;
             --earth-blue: #165466;
-            --font-heading: "Century Gothic", "Outfit", sans-serif;
-            --font-body: "Outfit", "Inter", sans-serif;
+            --font-heading: "Sora", sans-serif;
+            --font-body: "Manrope", sans-serif;
         }
 
         * {
@@ -51,11 +50,16 @@
         body {
             font-family: var(--font-body);
             background-color: var(--brand-black);
+            background-image:
+                linear-gradient(180deg, rgba(12, 22, 18, 0.88) 0%, rgba(28, 28, 28, 0.96) 32%, rgba(19, 27, 31, 0.95) 68%, rgba(28, 28, 28, 1) 100%),
+                radial-gradient(circle at top left, rgba(149, 183, 26, 0.1), transparent 34%),
+                radial-gradient(circle at bottom right, rgba(90, 193, 215, 0.08), transparent 28%);
             color: white;
             line-height: 1.6;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -67,13 +71,13 @@
 
         /* Text Outline Effects */
         .text-outline {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.72);
+            color: rgba(255, 255, 255, 0.76);
         }
 
         .text-outline-white {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
-            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.95);
+            color: rgba(255, 255, 255, 0.82);
         }
 
         .text-gradient-bloom {
@@ -191,6 +195,23 @@
             to { width: 100%; }
         }
 
+        @keyframes slow-pan {
+            0% { transform: scale(1.03) translate3d(0, 0, 0); }
+            50% { transform: scale(1.08) translate3d(-1.5%, -1.5%, 0); }
+            100% { transform: scale(1.05) translate3d(1.5%, 1%, 0); }
+        }
+
+        @keyframes float-drift {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes shimmer-line {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         .animate-marquee {
             display: flex;
             width: fit-content;
@@ -244,6 +265,55 @@
             transform: translateY(0) scale(1);
         }
 
+        .intro-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(8, 10, 9, 0.45);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            min-width: min(88vw, 920px);
+        }
+
+        .intro-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.28;
+            animation: slow-pan 24s ease-in-out infinite alternate;
+        }
+
+        .intro-scrim {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(11, 16, 14, 0.35), rgba(11, 16, 14, 0.82)),
+                linear-gradient(90deg, rgba(11, 16, 14, 0.78), rgba(11, 16, 14, 0.35));
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            padding: 56px 42px;
+        }
+
+        .intro-copy {
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        @media (max-width: 767px) {
+            .intro-frame {
+                min-width: calc(100vw - 32px);
+                border-radius: 22px;
+            }
+
+            .intro-content {
+                padding: 38px 24px;
+            }
+        }
+
         .intro-spin {
             animation: intro-spin 10s linear infinite;
         }
@@ -269,6 +339,39 @@
             height: 100%;
             width: 0;
             background: var(--bloom);
+        }
+
+        .logo-mark {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            display: block;
+        }
+
+        .logo-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+        }
+
+        .hero-image,
+        .ambient-image {
+            animation: slow-pan 24s ease-in-out infinite alternate;
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        .float-drift {
+            animation: float-drift 7s ease-in-out infinite;
+        }
+
+        .section-sheen {
+            background: linear-gradient(90deg, rgba(149, 183, 26, 0.22), rgba(90, 193, 215, 0.16), rgba(149, 183, 26, 0.22));
+            background-size: 200% 100%;
+            animation: shimmer-line 8s linear infinite;
         }
 
         /* Navigation Styles */
@@ -711,51 +814,65 @@
         </div>
 
         <div class="intro-phase active" data-duration="2500">
-            <div class="flex flex-col items-center gap-6">
-                <div class="relative w-24 h-24 flex items-center justify-center">
-                    <svg viewBox="0 0 100 100" class="w-full h-full text-bloom absolute intro-spin">
-                        <path d="M90 50C90 72.0914 72.0914 90 50 90C27.9086 90 10 72.0914 10 50" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
-                    </svg>
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white relative z-10">
-                        <path d="M9 18V5l12-2v13"></path>
-                        <circle cx="6" cy="18" r="3"></circle>
-                        <circle cx="18" cy="16" r="3"></circle>
-                    </svg>
-                </div>
-                <div class="flex flex-col items-center leading-none">
-                    <span class="font-heading font-bold text-4xl tracking-tighter text-white">GOOD VIBES</span>
-                    <span class="text-sm font-bold tracking-[0.8em] text-bloom mt-2">AFRICA</span>
+            <div class="intro-frame">
+                <img src="assets/hero-kigezi-landscape.jpeg" alt="" class="intro-bg" />
+                <div class="intro-scrim"></div>
+                <div class="intro-content intro-copy flex flex-col items-center gap-6">
+                    <div class="relative w-24 h-24 flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-bloom absolute intro-spin">
+                            <path d="M90 50C90 72.0914 72.0914 90 50 90C27.9086 90 10 72.0914 10 50" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+                        </svg>
+                        <div class="relative z-10 w-16 h-16 logo-shell">
+                            <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center leading-none">
+                        <span class="font-heading font-bold text-4xl tracking-tighter text-white">GOOD VIBES</span>
+                        <span class="text-sm font-bold tracking-[0.8em] text-bloom mt-2">AFRICA</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="intro-phase" data-duration="4000">
-            <div class="max-w-2xl px-10 text-center space-y-8">
-                <span class="text-bloom font-bold tracking-[0.5em] text-[10px] uppercase">Core Philosophy</span>
-                <h2 class="text-3xl md:text-5xl font-light italic leading-tight text-white/90">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you."
-                </h2>
-                <div class="w-12 h-[1px] bg-white/20 mx-auto"></div>
+            <div class="intro-frame">
+                <img src="assets/studio-room.jpeg" alt="" class="intro-bg" />
+                <div class="intro-scrim"></div>
+                <div class="intro-content intro-copy max-w-2xl mx-auto text-center space-y-8">
+                    <span class="text-bloom font-bold tracking-[0.5em] text-[10px] uppercase">Core Philosophy</span>
+                    <h2 class="text-3xl md:text-5xl font-semibold italic leading-tight text-white">
+                        "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you."
+                    </h2>
+                    <div class="w-12 h-[1px] bg-white/30 mx-auto"></div>
+                </div>
             </div>
         </div>
 
         <div class="intro-phase" data-duration="3000">
-            <div class="text-center space-y-4">
-                <span class="text-white/40 font-bold tracking-[0.3em] text-[10px] uppercase">Established in Kigezi</span>
-                <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none">
-                    Kigezi's Premier <br />
-                    <span class="text-outline-white opacity-40">Creative</span> Hub
-                </h2>
+            <div class="intro-frame">
+                <img src="assets/artists-collective.jpeg" alt="" class="intro-bg" />
+                <div class="intro-scrim"></div>
+                <div class="intro-content intro-copy text-center space-y-4">
+                    <span class="text-white/70 font-bold tracking-[0.3em] text-[10px] uppercase">Established in Kigezi</span>
+                    <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white">
+                        Kigezi's Premier <br />
+                        <span class="text-outline-white opacity-90">Creative</span> Hub
+                    </h2>
+                </div>
             </div>
         </div>
 
         <div class="intro-phase" data-duration="2000">
-            <div class="text-center group cursor-pointer" onclick="completeIntro()">
-                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">READY TO FEEL THE VIBES?</h2>
-                <div class="flex items-center justify-center gap-4">
-                    <span class="w-16 h-[1px] bg-bloom"></span>
-                    <span class="text-xs font-bold tracking-[1em] text-white/50 uppercase">Entering Sanctuary</span>
-                    <span class="w-16 h-[1px] bg-bloom"></span>
+            <div class="intro-frame">
+                <img src="assets/performer-qwela.jpeg" alt="" class="intro-bg" />
+                <div class="intro-scrim"></div>
+                <div class="intro-content intro-copy text-center group cursor-pointer" onclick="completeIntro()">
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-white">READY TO FEEL THE VIBES?</h2>
+                    <div class="flex items-center justify-center gap-4">
+                        <span class="w-16 h-[1px] bg-bloom"></span>
+                        <span class="text-xs font-bold tracking-[1em] text-white/70 uppercase">Entering Sanctuary</span>
+                        <span class="w-16 h-[1px] bg-bloom"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -800,11 +917,9 @@
                     <svg viewBox="0 0 100 100" class="w-10 h-10 text-bloom absolute -z-10 group-hover:rotate-180 transition-all duration-1000">
                         <path d="M90 50C90 72.0914 72.0914 90 50 90C27.9086 90 10 72.0914 10 50" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
                     </svg>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover:text-bloom transition-colors">
-                        <path d="M9 18V5l12-2v13"></path>
-                        <circle cx="6" cy="18" r="3"></circle>
-                        <circle cx="18" cy="16" r="3"></circle>
-                    </svg>
+                    <div class="w-10 h-10 logo-shell overflow-hidden rounded-xl">
+                        <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
+                    </div>
                 </div>
                 <div class="flex flex-col leading-[0.8] relative top-[-1px]">
                     <span class="font-heading font-bold text-lg tracking-tighter">GOOD VIBES</span>
@@ -837,12 +952,8 @@
         <div id="mobile-menu" class="mobile-menu">
             <div class="flex justify-between items-center mb-20">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-bloom flex items-center justify-center rounded-sm">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
-                            <path d="M9 18V5l12-2v13"></path>
-                            <circle cx="6" cy="18" r="3"></circle>
-                            <circle cx="18" cy="16" r="3"></circle>
-                        </svg>
+                    <div class="w-10 h-10 logo-shell overflow-hidden rounded-xl">
+                        <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
                     </div>
                     <span class="font-heading font-bold text-lg tracking-tighter">GOOD VIBES</span>
                 </div>
@@ -878,7 +989,7 @@
             <!-- Hero Section -->
             <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
                 <!-- Brand Brush Decor -->
-                <div class="absolute top-[20%] -right-[10%] w-[600px] h-[600px] pointer-events-none opacity-20">
+                <div class="absolute top-[20%] -right-[10%] w-[600px] h-[600px] pointer-events-none opacity-20 float-drift">
                     <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-bloom animate-[spin_60s_linear_infinite]">
                         <path d="M180 100C180 144.183 144.183 180 100 180C55.8172 180 20 144.183 20 100" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5" />
                         <path d="M160 100C160 133.137 133.137 160 100 160C66.8629 160 40 133.137 40 100" stroke="currentColor" stroke-width="8" stroke-linecap="round" opacity="0.3" />
@@ -886,11 +997,12 @@
                 </div>
 
                 <div class="absolute inset-0 z-0">
-                    <div class="absolute inset-0 bg-gradient-to-b from-brand-black via-brand-black/60 to-brand-black z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/50 to-brand-black z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-black/70 via-transparent to-brand-black/55 z-10"></div>
                     <img
-                        src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop"
-                        alt="Studio Background"
-                        class="w-full h-full object-cover grayscale opacity-40 blur-[2px]"
+                        src="assets/hero-kigezi-landscape.jpeg"
+                        alt="Kigezi landscape behind Good Vibes Africa"
+                        class="w-full h-full object-cover opacity-55 blur-[1px] hero-image"
                     />
                 </div>
 
@@ -914,6 +1026,17 @@
                             </svg>
                         </a>
                         <a href="#services" class="btn-secondary px-12" onclick="navigateTo('services')">Explore Services</a>
+                    </div>
+                    <div class="mt-12 flex justify-center">
+                        <div class="glass-card px-5 py-4 flex items-center gap-4 max-w-md text-left float-drift">
+                            <div class="w-14 h-14 logo-shell rounded-2xl overflow-hidden shrink-0">
+                                <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-1">Kabale, Uganda</p>
+                                <p class="text-sm text-white/70">A studio rooted in Kigezi views, live sessions, and local creative energy.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -962,16 +1085,19 @@
             </div>
 
             <!-- About Preview -->
-            <section class="py-40 bg-coal/10 relative">
+            <section class="py-40 bg-coal/10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-1/3 h-full african-pattern opacity-5"></div>
+                <div class="absolute inset-0 opacity-[0.08] pointer-events-none">
+                    <img src="assets/lake-viewpoint.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
                 <div class="container grid md:grid-cols-2 gap-24 items-center">
                     <div class="relative">
                         <div class="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-bloom/30"></div>
                         <div class="aspect-square overflow-hidden group rounded-2xl shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=1974&auto=format&fit=crop"
-                                alt="Artists"
-                                class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                                src="assets/artists-collective.jpeg"
+                                alt="Good Vibes Africa artists and team"
+                                class="w-full h-full object-cover brightness-75 group-hover:scale-110 transition-all duration-1000"
                             />
                         </div>
                         <div class="absolute -bottom-8 -right-8 bg-lake-blue p-10 hidden lg:block shadow-2xl">
@@ -1032,7 +1158,8 @@
             </section>
 
             <!-- Studio Gallery -->
-            <section class="py-40 bg-coal/20">
+            <section class="py-40 bg-coal/20 relative overflow-hidden">
+                <div class="absolute inset-x-0 top-0 h-[2px] section-sheen"></div>
                 <div class="container">
                     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                         <div class="max-w-2xl">
@@ -1043,17 +1170,31 @@
                     </div>
 
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 h-[600px]">
-                        <div class="col-span-2 row-span-2 overflow-hidden group rounded-2xl">
-                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000" alt="Control Room" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                        <div class="col-span-2 row-span-2 overflow-hidden group rounded-2xl relative">
+                            <img src="assets/studio-room.jpeg" alt="Good Vibes Africa control room" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-brand-black via-brand-black/70 to-transparent">
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Main Room</p>
+                                <p class="text-lg font-bold uppercase tracking-tight">Control Room Atmosphere</p>
+                            </div>
                         </div>
-                        <div class="overflow-hidden group rounded-2xl">
-                            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000" alt="Mic Setup" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                        <div class="overflow-hidden group rounded-2xl relative">
+                            <img src="assets/studio-microphone.jpeg" alt="Microphone setup in the studio" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-brand-black via-brand-black/65 to-transparent">
+                                <p class="text-[9px] uppercase tracking-[0.3em] text-bloom">Vocal Chain</p>
+                            </div>
                         </div>
-                        <div class="overflow-hidden group rounded-2xl">
-                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000" alt="Mixing Console" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                        <div class="overflow-hidden group rounded-2xl relative">
+                            <img src="assets/keyboard-closeup.jpeg" alt="Production keyboard and workstation" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-brand-black via-brand-black/65 to-transparent">
+                                <p class="text-[9px] uppercase tracking-[0.3em] text-lake-blue">Production Desk</p>
+                            </div>
                         </div>
-                        <div class="col-span-2 overflow-hidden group rounded-2xl">
-                            <img src="https://images.unsplash.com/photo-1520529277867-dbf8c5e0b340?q=80&w=1000" alt="Vocal Booth" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                        <div class="col-span-2 overflow-hidden group rounded-2xl relative">
+                            <img src="assets/session-duo.jpeg" alt="Artists recording and jamming together" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-brand-black via-brand-black/70 to-transparent">
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Live Energy</p>
+                                <p class="text-lg font-bold uppercase tracking-tight">Collaborative Session Space</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1062,6 +1203,9 @@
             <!-- Featured Section -->
             <section class="py-32 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-forest/5 -skew-x-12 transform origin-top translate-x-32"></div>
+                <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
+                    <img src="assets/outdoor-group.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
                 <div class="container flex flex-col md:flex-row items-center gap-20">
                     <div class="md:w-1/2">
                         <h2 class="text-5xl md:text-7xl mb-8 leading-none tracking-tighter italic">It's All About <span class="text-bloom">The Vibes</span></h2>
@@ -1082,8 +1226,8 @@
                         </div>
                     </div>
                     <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000" alt="Studio 1" class="w-full aspect-[4/5] object-cover grayscale brightness-50 rounded-2xl shadow-xl" />
-                        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000" alt="Studio 2" class="w-full aspect-[4/5] object-cover grayscale brightness-75 translate-y-12 rounded-2xl shadow-xl" />
+                        <img src="assets/performer-qwela.jpeg" alt="Performer representing the Good Vibes Africa sound" class="w-full aspect-[4/5] object-cover brightness-75 rounded-2xl shadow-xl" />
+                        <img src="assets/drum-detail.jpeg" alt="Drum detail from the studio" class="w-full aspect-[4/5] object-cover brightness-90 translate-y-12 rounded-2xl shadow-xl" />
                     </div>
                 </div>
             </section>
@@ -1106,8 +1250,11 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-40 bg-coal/10">
-            <div class="container">
+        <section id="about" class="py-40 bg-coal/10 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
+                <img src="assets/ceo-founder.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="container relative z-10">
                 <div class="text-center mb-20">
                     <span class="text-bloom font-bold tracking-widest text-xs uppercase mb-6 block">About Good Vibes Africa</span>
                     <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Story</span></h1>
@@ -1129,8 +1276,80 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=1974&auto=format&fit=crop" alt="Our Story" class="w-full rounded-2xl shadow-2xl" />
+                        <img src="assets/ceo-founder.jpeg" alt="Portrait tied to the Good Vibes Africa story" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]" />
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Artists Section -->
+        <section id="featured-artists" class="py-40 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.08] pointer-events-none">
+                <img src="assets/artists-collective.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/75 via-brand-black/92 to-coal/95"></div>
+            <div class="absolute inset-x-0 top-0 h-[2px] section-sheen"></div>
+            <div class="container relative z-10">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+                    <div class="max-w-2xl">
+                        <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Featured Artists</span>
+                        <h2 class="text-5xl md:text-8xl mt-6 leading-none tracking-tighter">
+                            Voices With <span class="text-outline opacity-30">Real Stories</span>
+                        </h2>
+                    </div>
+                    <p class="text-white/50 max-w-md leading-relaxed">
+                        A few of the artists and crews shaping the Good Vibes Africa sound, with short reflections on the studio atmosphere.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+                        <div class="relative aspect-[4/5] overflow-hidden">
+                            <img src="assets/amani-featured-artist.jpeg" alt="Featured artist Amani Amaniga" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+                            <div class="absolute left-5 bottom-5">
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
+                                <h3 class="text-2xl font-bold uppercase tracking-tight">Amani Amaniga</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-white/75 leading-relaxed">
+                                "The studio feels close to home, but the sound comes out polished and ready for a bigger stage."
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-bloom/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+                        <div class="relative aspect-[4/5] overflow-hidden">
+                            <img src="assets/sir-kisoro-featured-artist.jpeg" alt="Featured artist Sir Kisoro" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/25 to-transparent"></div>
+                            <div class="absolute left-5 bottom-5">
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
+                                <h3 class="text-2xl font-bold uppercase tracking-tight">Sir Kisoro</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-white/80 leading-relaxed">
+                                "There is a calm in the room that lets ideas land quickly. You hear the feeling before the take is even done."
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-lake-blue/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+                        <div class="relative aspect-[4/5] overflow-hidden">
+                            <img src="assets/performer-qwela.jpeg" alt="Featured artist Qwela session" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+                            <div class="absolute left-5 bottom-5">
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-lake-blue mb-2">Live Session</p>
+                                <h3 class="text-2xl font-bold uppercase tracking-tight">Qwela Circle</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-white/80 leading-relaxed">
+                                "Good Vibes keeps the energy raw, musical, and honest. That balance is what makes a session memorable."
+                            </p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1297,7 +1516,8 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold mb-2">Phone</h3>
-                                    <p class="text-white/70">+256 __________</p>
+                                    <p class="text-white/70">  0787776865</p>
+                                    <p class="text-white/70"> Joe Kahiri</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -1402,9 +1622,13 @@
         </section>
 
         <!-- Sample Song Section -->
-        <section id="sample-song" class="py-32 bg-brand-black">
+        <section id="sample-song" class="py-32 bg-brand-black relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 pointer-events-none">
+                <img src="assets/musician-portrait.jpeg" alt="" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-brand-black/80"></div>
             <div class="container">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
                     <div>
                         <span class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Sample Track</span>
                         <h2 class="text-5xl md:text-7xl mt-6 mb-8 leading-none tracking-tighter">
@@ -1413,6 +1637,14 @@
                         <p class="text-white/50 text-lg leading-relaxed">
                             Press play to hear the sound and energy behind the Good Vibes Africa creative world.
                         </p>
+                        <div class="mt-8 flex items-center gap-4 p-4 border border-white/10 bg-white/5 rounded-2xl max-w-md">
+                            <img src="assets/performer-qwela.jpeg" alt="Qwela performance still" class="w-20 h-20 rounded-xl object-cover" />
+                            <div>
+                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Now Playing</p>
+                                <p class="font-bold uppercase tracking-tight">Qwela Session Sample</p>
+                                <p class="text-white/50 text-sm">Live performance energy from the Good Vibes orbit.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="overflow-hidden rounded-2xl border border-white/10 bg-coal/40 shadow-2xl">
                         <div class="aspect-video">
@@ -1438,23 +1670,23 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-coal pt-20 pb-10 border-t border-white/5 relative">
+    <footer class="bg-coal pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.08] pointer-events-none">
+            <img src="assets/lake-viewpoint.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-coal/85 via-coal/95 to-brand-black"></div>
         <!-- Back to Top Button -->
         <button onclick="scrollToTop()" class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-bloom text-brand-black flex items-center justify-center rounded-full hover:scale-110 transition-all shadow-lg z-20" title="Back to Top">
             <span class="text-xl">↑</span>
         </button>
 
-        <div class="container grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="container relative z-10 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="space-y-6">
                 <a href="#home" class="inline-block" onclick="navigateTo('home')">
                     <div class="flex items-center gap-3 group relative">
                         <div class="relative">
-                            <div class="w-10 h-10 bg-bloom flex items-center justify-center rounded-sm transition-transform group-hover:rotate-6">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
-                                    <path d="M9 18V5l12-2v13"></path>
-                                    <circle cx="6" cy="18" r="3"></circle>
-                                    <circle cx="18" cy="16" r="3"></circle>
-                                </svg>
+                            <div class="w-12 h-12 logo-shell transition-transform group-hover:rotate-3 group-hover:scale-105">
+                                <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
                             </div>
                         </div>
                         <div class="flex flex-col leading-none">
@@ -1533,7 +1765,7 @@
             </div>
         </div>
 
-        <div class="container mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="container relative z-10 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-[10px] text-white/40 uppercase tracking-widest text-center md:text-left">
                 <p>© GVA Holdings Limited</p>
                 <p>GVA 'Good Vibes Africa' Holdings Limited (URSB: 80020001912048)</p>
@@ -1549,7 +1781,7 @@
     <div class="audio-player">
         <div class="glass-card p-4 rounded-lg flex items-center gap-6 w-96 shadow-2xl border-white/10 border-l-4 border-l-bloom">
             <div class="relative group overflow-hidden rounded-md shrink-0 w-16 h-16">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop" alt="Cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img src="assets/performer-qwela.jpeg" alt="Sample song artwork" class="w-full h-full object-cover transition-all duration-500" />
                 <div class="absolute inset-0 bg-brand-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <a href="https://www.youtube.com/watch?v=kipd8iM3yEU" target="_blank" rel="noopener noreferrer" class="text-white" aria-label="Play sample song on YouTube">
                         <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1678,7 +1910,7 @@
         }
 
         function sendWhatsAppMessage(message) {
-            window.location.href = `https://wa.me/256791439727?text=${encodeURIComponent(message)}`;
+            window.location.href = `https://wa.me/256784454991?text=${encodeURIComponent(message)}`;
         }
 
         function navigateTo(sectionId) {
