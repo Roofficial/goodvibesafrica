@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Vibes Africa - Premier Creative Hub</title>
+    <title>Good Vibes Africa - Premier Creative Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,16 +30,46 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --coal: #303030;
-            --brand-black: #1C1C1C;
-            --forest: #33681C;
-            --bloom: #95B71A;
-            --lake-blue: #5AC1D7;
-            --earth-blue: #165466;
-            --font-heading: "Sora", sans-serif;
-            --font-body: "Manrope", sans-serif;
-        }
+    :root {
+        --coal: #303030;
+        --brand-black: #1C1C1C;
+        --forest: #33681C;
+        --bloom: #95B71A;
+        --lake-blue: #5AC1D7;
+        --earth-blue: #165466;
+        --font-heading: "Sora", sans-serif;
+        --font-body: "Manrope", sans-serif;
+    }
+
+    /* Light theme variables */
+    [data-theme="light"] {
+        --coal: #F5F5F5;
+        --brand-black: #FFFFFF;
+        --forest: #4CAF50;
+        --bloom: #8BC34A;
+        --lake-blue: #03A9F4;
+        --earth-blue: #0277BD;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    [data-theme="light"] .theme-toggle {
+        background: rgba(0, 0, 0, 0.1);
+        border-color: rgba(0, 0, 0, 0.2);
+        color: #1C1C1C;
+    }
 
         * {
             margin: 0;
@@ -47,20 +77,31 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: var(--font-body);
-            background-color: var(--brand-black);
-            background-image:
-                linear-gradient(180deg, rgba(12, 22, 18, 0.88) 0%, rgba(28, 28, 28, 0.96) 32%, rgba(19, 27, 31, 0.95) 68%, rgba(28, 28, 28, 1) 100%),
-                radial-gradient(circle at top left, rgba(149, 183, 26, 0.1), transparent 34%),
-                radial-gradient(circle at bottom right, rgba(90, 193, 215, 0.08), transparent 28%);
-            color: white;
-            line-height: 1.6;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
+    body {
+        font-family: var(--font-body);
+        background-color: var(--brand-black);
+        background-image:
+            linear-gradient(180deg, rgba(12, 22, 18, 0.88) 0%, rgba(28, 28, 28, 0.96) 32%, rgba(19, 27, 31, 0.95) 68%, rgba(28, 28, 28, 1) 100%),
+            radial-gradient(circle at top left, rgba(149, 183, 26, 0.1), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(90, 193, 215, 0.08), transparent 28%);
+        color: white;
+        line-height: 1.6;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Light theme body styles */
+    [data-theme="light"] body {
+        background-color: var(--brand-black);
+        background-image:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.98) 32%, rgba(240, 240, 240, 0.97) 68%, rgba(255, 255, 255, 1) 100%),
+            radial-gradient(circle at top left, rgba(139, 195, 74, 0.1), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(3, 169, 244, 0.08), transparent 28%);
+        color: #1C1C1C;
+    }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
@@ -87,15 +128,21 @@
             background-clip: text;
         }
 
-        /* Glass Card Effect */
-        .glass-card {
-            background: rgba(48, 48, 48, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
+    /* Glass Card Effect */
+    .glass-card {
+        background: rgba(48, 48, 48, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
 
         /* Button Styles */
         .btn-primary {
@@ -853,11 +900,11 @@
                 <img src="assets/artists-collective.jpeg" alt="" class="intro-bg" />
                 <div class="intro-scrim"></div>
                 <div class="intro-content intro-copy text-center space-y-4">
-                    <span class="text-white/70 font-bold tracking-[0.3em] text-[10px] uppercase">Established in Kigezi</span>
-                    <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white">
-                        Kigezi's Premier <br />
-                        <span class="text-outline-white opacity-90">Creative</span> Hub
-                    </h2>
+                        <span class="text-white/70 font-bold tracking-[0.3em] text-[10px] uppercase">Established in Kigezi</span>
+                        <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white">
+                            Kigezi's Premier <br />
+                            <span class="text-outline-white opacity-90">Creative</span> Studio
+                        </h2>
                 </div>
             </div>
         </div>
@@ -931,9 +978,11 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="#home" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('home')">Home</a>
                 <a href="#about" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('about')">About</a>
+                <a href="#producer-word" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('producer-word')">Producer</a>
                 <a href="#services" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('services')">Services</a>
                 <a href="#pricing" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('pricing')">Pricing</a>
                 <a href="#contact" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('contact')">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
                 <a href="#booking" class="btn-accent py-2 px-6 ml-4" onclick="navigateTo('booking')">Book Now</a>
             </div>
 
@@ -968,6 +1017,7 @@
             <div class="flex flex-col gap-6">
                 <a href="#home" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('home')">Home</a>
                 <a href="#about" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('about')">About</a>
+                <a href="#producer-word" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('producer-word')">Producer</a>
                 <a href="#services" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('services')">Services</a>
                 <a href="#pricing" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('pricing')">Pricing</a>
                 <a href="#contact" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('contact')">Contact</a>
@@ -1007,9 +1057,9 @@
                 </div>
 
                 <div class="relative z-20 container text-center">
-                    <span class="text-bloom inline-block font-bold tracking-[0.4em] uppercase text-xs mb-8">
-                        Kigezi's Premier Creative Hub
-                    </span>
+                        <span class="text-bloom inline-block font-bold tracking-[0.4em] uppercase text-xs mb-8">
+                            Kigezi's Premier Creative Studio
+                        </span>
                     <h1 class="text-7xl md:text-[11rem] font-black mb-8 tracking-tighter leading-[0.8]">
                         <span class="block text-outline opacity-40">FEEL THE</span>
                         <span class="block text-gradient-bloom brush-accent">VIBES</span>
@@ -1126,8 +1176,11 @@
             </section>
 
             <!-- Artist Journey Section -->
-            <section class="py-40">
-                <div class="container">
+            <section class="py-40 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-[0.02] pointer-events-none">
+                    <img src="assets/WhatsApp Image 2026-05-05 at 12.06.42 (3).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
+                <div class="container relative z-10">
                     <div class="text-center mb-20">
                         <h2 class="text-5xl md:text-8xl mb-6 leading-none uppercase tracking-tighter">Artist <span class="text-outline block md:inline opacity-30">Journey</span></h2>
                         <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">The GVA Process</p>
@@ -1159,6 +1212,9 @@
 
             <!-- Studio Gallery -->
             <section class="py-40 bg-coal/20 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                    <img src="assets/WhatsApp Image 2026-05-05 at 12.08.58.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
                 <div class="absolute inset-x-0 top-0 h-[2px] section-sheen"></div>
                 <div class="container">
                     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -1203,6 +1259,9 @@
             <!-- Featured Section -->
             <section class="py-32 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-1/2 h-full bg-forest/5 -skew-x-12 transform origin-top translate-x-32"></div>
+                <div class="absolute inset-0 opacity-[0.02] pointer-events-none">
+                    <img src="assets/WhatsApp Image 2026-05-05 at 12.11.53.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
                 <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
                     <img src="assets/outdoor-group.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
                 </div>
@@ -1233,8 +1292,11 @@
             </section>
 
             <!-- CTA Section -->
-            <section class="py-40">
-                <div class="container">
+            <section class="py-40 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                    <img src="assets/WhatsApp Image 2026-05-05 at 12.15.10.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                </div>
+                <div class="container relative z-10">
                     <div class="bg-white p-16 md:p-32 flex flex-col md:flex-row items-center justify-between gap-16 relative overflow-hidden text-brand-black rounded-[2rem] md:rounded-[4rem] shadow-2xl">
                         <div class="absolute bottom-0 right-0 w-96 h-96 bg-bloom/10 -translate-x-12 translate-y-12 rounded-full"></div>
                         <div class="relative z-10 text-center md:text-left max-w-xl">
@@ -1277,6 +1339,40 @@
                     </div>
                     <div class="relative">
                         <img src="assets/ceo-founder.jpeg" alt="Portrait tied to the Good Vibes Africa story" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Producer's Word Section -->
+        <section id="producer-word" class="py-40 bg-coal/10 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.08] pointer-events-none">
+                <img src="assets/Producer.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="container relative z-10">
+                <div class="text-center mb-20">
+                    <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Producer's Word</span>
+                    <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">A Message from <span class="text-outline opacity-30">the Producer</span></h1>
+                </div>
+                <div class="grid md:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <img src="assets/Producer.jpeg" alt="Portrait of the producer" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]" />
+                    </div>
+                    <div>
+                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter">Crafting Sounds that <br /><span class="brush-accent">Resonate</span></h2>
+                        <div class="space-y-6 text-white/70 leading-relaxed text-lg">
+                            <p>
+                                As the producer behind Good Vibes Africa, my passion lies in transforming raw talent into polished masterpieces.
+                                Every track we create carries the essence of Kigezi's rich musical heritage while embracing modern production techniques.
+                            </p>
+                            <p>
+                                Music production is more than technical expertise—it's about capturing emotion, creating atmosphere,
+                                and helping artists find their unique voice in a crowded industry.
+                            </p>
+                            <p>
+                                Join us in this creative journey where your sound meets our vision, and together we craft music that moves the world.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1355,40 +1451,55 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-40">
-            <div class="container">
+        <section id="services" class="py-40 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.05] pointer-events-none">
+                <img src="assets/WhatsApp Image 2026-05-05 at 12.03.57 (1).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="container relative z-10">
                 <div class="text-center mb-20">
                     <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Services</span></h1>
                     <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Complete Music Production Solutions</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">🎵</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/recording.jpeg" alt="Recording setup" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Recording</h3>
                         <p class="text-white/60 leading-relaxed">Professional recording sessions with state-of-the-art equipment and expert engineers.</p>
                     </div>
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">🎛️</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/mixer.jpeg" alt="Audio mixer console" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Mixing & Mastering</h3>
                         <p class="text-white/60 leading-relaxed">Industry-standard mixing and mastering services to polish your tracks to perfection.</p>
                     </div>
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">🎨</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/drum-detail.jpeg" alt="Drum kit detail" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Production</h3>
                         <p class="text-white/60 leading-relaxed">Full production services including arrangement, instrumentation, and creative direction.</p>
                     </div>
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">🌍</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/WhatsApp Image 2026-05-05 at 12.03.57 (3).jpeg" alt="Global distribution network" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Distribution</h3>
                         <p class="text-white/60 leading-relaxed">Global music distribution and marketing services to reach audiences worldwide.</p>
                     </div>
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">🎤</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/performer-qwela.jpeg" alt="Artist performing" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Artist Development</h3>
                         <p class="text-white/60 leading-relaxed">Comprehensive artist development programs and career guidance.</p>
                     </div>
                     <div class="glass-card p-8 hover-glow">
-                        <div class="text-5xl mb-6">📚</div>
+                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                            <img src="assets/session-duo.jpeg" alt="Collaborative workshop session" class="w-full h-full object-cover" />
+                        </div>
                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Workshops</h3>
                         <p class="text-white/60 leading-relaxed">Music production workshops and training sessions for aspiring artists and producers.</p>
                     </div>
@@ -1399,6 +1510,9 @@
         <!-- Pricing Section -->
         <section id="pricing" class="py-40 bg-coal/10 relative overflow-hidden">
             <div class="absolute inset-0 pattern-bg opacity-10 pointer-events-none"></div>
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <img src="assets/WhatsApp Image 2026-05-05 at 12.03.56 (2).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
             <div class="absolute top-20 right-[-10%] w-[420px] h-[420px] border border-bloom/10 rounded-full pointer-events-none"></div>
             <div class="absolute bottom-20 left-[-8%] w-[320px] h-[320px] border border-lake-blue/10 rounded-full pointer-events-none"></div>
             <div class="container relative z-10">
@@ -1486,8 +1600,11 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-40">
-            <div class="container">
+        <section id="contact" class="py-40 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
+                <img src="assets/WhatsApp Image 2026-05-05 at 12.03.55 (2).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="container relative z-10">
                 <div class="text-center mb-20">
                     <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Get In <span class="text-outline opacity-30">Touch</span></h1>
                     <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Create Something Amazing</p>
@@ -1562,8 +1679,11 @@
         </section>
 
         <!-- Booking Section -->
-        <section id="booking" class="py-40 bg-coal/10">
-            <div class="container">
+        <section id="booking" class="py-40 bg-coal/10 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <img src="assets/WhatsApp Image 2026-05-05 at 12.06.42 (1).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+            </div>
+            <div class="container relative z-10">
                 <div class="text-center mb-20">
                     <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Book <span class="text-outline opacity-30">Your Session</span></h1>
                     <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Make Music Together</p>
@@ -1742,7 +1862,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-bloom shrink-0">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
-                        <span>+256 787776865</span>
+                        <span>+971 508522354</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-bloom shrink-0">
@@ -1910,7 +2030,7 @@
         }
 
         function sendWhatsAppMessage(message) {
-            window.location.href = `https://wa.me/256784454991?text=${encodeURIComponent(message)}`;
+            window.location.href = `https://wa.me/971508522354?text=${encodeURIComponent(message)}`;
         }
 
         function navigateTo(sectionId) {
@@ -1928,6 +2048,23 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('open');
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙 Dark';
+            } else {
+                html.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '☀️ Light';
+            }
+
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', html.getAttribute('data-theme') || 'dark');
         }
 
         function scrollToTop() {
@@ -1980,6 +2117,16 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.getElementById('theme-toggle');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '☀️ Light';
+            } else {
+                themeToggle.textContent = '🌙 Dark';
+            }
+
             runIntroSequence();
             window.addEventListener('scroll', handleScroll);
 
