@@ -41,81 +41,6 @@
         --font-body: "Manrope", sans-serif;
     }
 
-    /* Light theme variables */
-    [data-theme="light"] {
-        --coal: #F8F6F3;
-        --brand-black: #FFFFFF;
-        --forest: #4A7C59;
-        --bloom: #8FAF6F;
-        --lake-blue: #5A9BD4;
-        --earth-blue: #3A7D8C;
-        --text-primary: #2D2D2D;
-        --text-secondary: #5A5A5A;
-        --text-tertiary: #8A8A8A;
-    }
-
-    /* Theme toggle button */
-    .theme-toggle {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #ffffff;
-        padding: 10px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .theme-toggle::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: url("assets/artists-collective.jpeg");
-        background-size: cover;
-        background-position: center;
-        opacity: 0.15;
-        z-index: 0;
-    }
-
-    .theme-toggle span {
-        position: relative;
-        z-index: 1;
-    }
-
-    [data-theme="light"] .theme-toggle {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.9) 100%);
-        border-color: rgba(0, 0, 0, 0.25);
-        color: #1C1C1C;
-        font-weight: 700;
-        backdrop-filter: blur(12px);
-    }
-
-    [data-theme="light"] .theme-toggle::before {
-        opacity: 0.1;
-    }
-
-    .theme-toggle:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    [data-theme="light"] .theme-toggle:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    /* Theme icon styling */
-    .theme-icon {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-    }
-
         * {
             margin: 0;
             padding: 0;
@@ -136,45 +61,6 @@
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
         transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Light theme body styles */
-    [data-theme="light"] body {
-        background-color: #FDFDFD;
-        background-image:
-            linear-gradient(180deg, rgba(253, 253, 253, 1) 0%, rgba(250, 250, 250, 0.98) 32%, rgba(245, 245, 245, 0.96) 68%, rgba(255, 255, 255, 1) 100%),
-            radial-gradient(circle at top left, rgba(143, 175, 111, 0.06), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(90, 155, 212, 0.04), transparent 28%);
-        color: var(--text-primary);
-    }
-
-    [data-theme="light"] h1,
-    [data-theme="light"] h2,
-    [data-theme="light"] h3,
-    [data-theme="light"] h4,
-    [data-theme="light"] h5,
-    [data-theme="light"] h6 {
-        color: var(--text-primary);
-    }
-
-    [data-theme="light"] p,
-    [data-theme="light"] span,
-    [data-theme="light"] a {
-        color: var(--text-secondary);
-    }
-
-    [data-theme="light"] a:hover {
-        color: var(--text-primary);
-    }
-
-    [data-theme="light"] .text-outline {
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
-        color: rgba(30, 30, 30, 0.95);
-    }
-
-    [data-theme="light"] .text-outline-white {
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.08);
-        color: rgba(28, 28, 28, 0.98);
     }
 
         h1, h2, h3, h4, h5, h6 {
@@ -210,39 +96,6 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         border-radius: 16px;
         transition: all 0.3s ease;
-    }
-
-    [data-theme="light"] .glass-card {
-        background: rgba(255, 255, 255, 0.85);
-        border-color: rgba(0, 0, 0, 0.08);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    [data-theme="light"] .btn-primary {
-        background-color: var(--forest);
-        color: white;
-    }
-
-    [data-theme="light"] .btn-primary:hover {
-        background-color: var(--bloom);
-    }
-
-    [data-theme="light"] .btn-secondary {
-        border-color: rgba(0, 0, 0, 0.15);
-        color: var(--text-primary);
-    }
-
-    [data-theme="light"] .btn-secondary:hover {
-        border-color: var(--forest);
-        background: rgba(46, 125, 50, 0.08);
-    }
-
-    [data-theme="light"] .btn-accent {
-        background-color: var(--forest);
-    }
-
-    [data-theme="light"] .btn-accent:hover {
-        background-color: var(--bloom);
     }
 
         /* Button Styles */
@@ -307,10 +160,6 @@
             background-size: 20px 20px;
         }
 
-        [data-theme="light"] .pattern-bg {
-            background-image: radial-gradient(rgba(46, 125, 50, 0.15) 0.5px, transparent 0.5px);
-        }
-
         /* Brush Accent Effect */
         .brush-accent {
             position: relative;
@@ -329,10 +178,6 @@
             background-size: 100% 100%;
             z-index: -1;
             pointer-events: none;
-        }
-
-        [data-theme="light"] .brush-accent::after {
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='20' viewBox='0 0 200 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10C50 2 150 18 200 10' stroke='%237CB342' stroke-width='6' stroke-opacity='0.6' stroke-linecap='round'/%3E%3C/svg%3E");
         }
 
         /* Marquee Animation */
@@ -363,6 +208,38 @@
             100% { transform: translateY(0); }
         }
 
+        @keyframes neon-wave {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-60px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes neon-blink {
+            from { opacity: 0.3; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.8); }
+        }
+
+        @keyframes neon-pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        @keyframes neon-beam-move {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        @keyframes neon-float {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        @keyframes neon-ring {
+            from { transform: translateX(-50%) scale(0.5); opacity: 1; }
+            to { transform: translateX(-50%) scale(1.8); opacity: 0; }
+        }
+
         @keyframes shimmer-line {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
@@ -391,12 +268,137 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: var(--brand-black);
+            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .intro-neon-scene {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: radial-gradient(circle at top, #09111f 0%, #000 65%);
+        }
+
+        .intro-neon-scene::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 30%, rgba(162, 0, 255, 0.18), transparent 35%),
+                radial-gradient(circle at center bottom, rgba(0, 102, 255, 0.2), transparent 40%);
+            animation: neon-pulse 8s infinite alternate;
+        }
+
+        .intro-beam {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.9), transparent);
+            box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+            animation: neon-beam-move 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        .intro-beam:nth-child(1) {
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .intro-beam:nth-child(2) {
+            left: 40%;
+            background: linear-gradient(to bottom, transparent, #8f00ff, transparent);
+            box-shadow: 0 0 20px #8f00ff, 0 0 40px #8f00ff;
+            animation-delay: 2s;
+        }
+
+        .intro-beam:nth-child(3) {
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        .intro-neon-grid {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            transform: perspective(900px) rotateX(65deg) scale(1.3);
+        }
+
+        .intro-neon-column {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            animation: neon-wave 5s ease-in-out infinite;
+        }
+
+        .intro-neon-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #00cfff;
+            box-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff;
+            animation: neon-blink 2s infinite alternate;
+        }
+
+        .intro-neon-dot:nth-child(3n) {
+            background: #00ffff;
+        }
+
+        .intro-neon-dot:nth-child(5n) {
+            background: #7a5cff;
+            box-shadow: 0 0 12px #7a5cff, 0 0 25px #7a5cff;
+        }
+
+        .intro-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.8;
+            animation: neon-float 12s linear infinite;
+        }
+
+        .intro-wave-ring {
+            position: absolute;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: neon-ring 5s infinite ease-out;
+        }
+
+        .intro-wave-1 {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .intro-wave-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 2s;
+        }
+
+        .intro-top-glow {
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 70%);
+            filter: blur(60px);
         }
 
         .intro-overlay.hidden {
@@ -426,7 +428,7 @@
             overflow: hidden;
             border-radius: 28px;
             border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(8, 10, 9, 0.45);
+            background: rgba(0, 0, 0, 0.32);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             min-width: min(88vw, 920px);
         }
@@ -437,7 +439,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0;
             animation: slow-pan 24s ease-in-out infinite alternate;
         }
 
@@ -959,19 +961,6 @@
                 display: none;
             }
 
-            .theme-toggle-mobile {
-                width: 100%;
-                text-align: center;
-                margin-top: 16px;
-                padding-top: 16px;
-                border-top: 1px solid rgba(255, 255, 255, 0.15);
-                font-size: 14px;
-                padding: 12px 20px;
-            }
-
-            [data-theme="light"] .theme-toggle-mobile {
-                border-top-color: rgba(0, 0, 0, 0.15);
-            }
         }
 
         /* Image Styling */
@@ -981,10 +970,6 @@
             height: auto;
             border-radius: 8px;
             transition: filter 0.3s ease;
-        }
-
-        [data-theme="light"] img:not(.logo-mark):not(.intro-bg):not(.ambient-image) {
-            filter: brightness(0.95) contrast(1.05);
         }
 
         .logo-mark,
@@ -998,9 +983,14 @@
 <body>
     <!-- Intro Sequence -->
     <div id="intro-overlay" class="intro-overlay">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] bg-bloom/5 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-lake-blue/5 rounded-full blur-[100px]"></div>
+        <div id="intro-neon-scene" class="intro-neon-scene" aria-hidden="true">
+            <div class="intro-beam"></div>
+            <div class="intro-beam"></div>
+            <div class="intro-beam"></div>
+            <div class="intro-top-glow"></div>
+            <div class="intro-wave-ring intro-wave-1"></div>
+            <div class="intro-wave-ring intro-wave-2"></div>
+            <div id="intro-neon-grid" class="intro-neon-grid"></div>
         </div>
 
         <div class="intro-phase active" data-duration="2500">
@@ -1125,7 +1115,6 @@
                 <a href="#services" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('services')">Services</a>
                 <a href="#pricing" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('pricing')">Pricing</a>
                 <a href="#contact" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('contact')">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon">🌙 Dark</span></button>
                 <a href="#booking" class="btn-accent py-2 px-6 ml-4" onclick="navigateTo('booking')">Book Now</a>
             </div>
 
@@ -1168,7 +1157,6 @@
             </div>
 
             <div class="mt-auto flex flex-col gap-4">
-                <button id="theme-toggle-mobile" class="theme-toggle theme-toggle-mobile" onclick="toggleTheme()"><span class="theme-icon">🌙 Dark</span></button>
                 <a href="#booking" class="btn-accent w-full block text-center py-5" onclick="navigateTo('booking')">Book a Session</a>
             </div>
         </div>
@@ -2194,30 +2182,47 @@
             mobileMenu.classList.toggle('open');
         }
 
-        function toggleTheme() {
-            const html = document.documentElement;
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-            if (newTheme === 'dark') {
-                html.removeAttribute('data-theme');
-                const text = '<span class="theme-icon">🌙 Dark Mode</span>';
-                if (themeToggle) themeToggle.innerHTML = text;
-                if (themeToggleMobile) themeToggleMobile.innerHTML = text;
-            } else {
-                html.setAttribute('data-theme', 'light');
-                const text = '<span class="theme-icon">☀️ Light Mode</span>';
-                if (themeToggle) themeToggle.innerHTML = text;
-                if (themeToggleMobile) themeToggleMobile.innerHTML = text;
-            }
-
-            localStorage.setItem('theme', html.getAttribute('data-theme') || 'dark');
-        }
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function buildIntroNeonBackground() {
+            const scene = document.getElementById('intro-neon-scene');
+            const grid = document.getElementById('intro-neon-grid');
+
+            if (!scene || !grid || grid.dataset.ready === 'true') {
+                return;
+            }
+
+            for (let c = 0; c < 70; c++) {
+                const column = document.createElement('div');
+                column.className = 'intro-neon-column';
+                column.style.animationDelay = `${c * 0.08}s`;
+
+                for (let d = 0; d < 60; d++) {
+                    const dot = document.createElement('div');
+                    const size = Math.random() * 4 + 2;
+                    dot.className = 'intro-neon-dot';
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    dot.style.opacity = Math.random();
+                    dot.style.animationDelay = `${Math.random() * 3}s`;
+                    column.appendChild(dot);
+                }
+
+                grid.appendChild(column);
+            }
+
+            for (let i = 0; i < 80; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'intro-particle';
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                scene.appendChild(particle);
+            }
+
+            grid.dataset.ready = 'true';
         }
 
         function toggleAudio() {
@@ -2266,16 +2271,9 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('theme');
-            const themeToggle = document.getElementById('theme-toggle');
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeToggle.innerHTML = '<span class="theme-icon">☀️ Light Mode</span>';
-            } else {
-                themeToggle.innerHTML = '<span class="theme-icon">🌙 Dark Mode</span>';
-            }
-
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
+            buildIntroNeonBackground();
             runIntroSequence();
             window.addEventListener('scroll', handleScroll);
 
