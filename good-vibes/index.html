@@ -43,32 +43,77 @@
 
     /* Light theme variables */
     [data-theme="light"] {
-        --coal: #F5F5F5;
+        --coal: #F8F6F3;
         --brand-black: #FFFFFF;
-        --forest: #4CAF50;
-        --bloom: #8BC34A;
-        --lake-blue: #03A9F4;
-        --earth-blue: #0277BD;
+        --forest: #4A7C59;
+        --bloom: #8FAF6F;
+        --lake-blue: #5A9BD4;
+        --earth-blue: #3A7D8C;
+        --text-primary: #2D2D2D;
+        --text-secondary: #5A5A5A;
+        --text-tertiary: #8A8A8A;
     }
 
     /* Theme toggle button */
     .theme-toggle {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 10px 16px;
+        border-radius: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 13px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .theme-toggle::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("assets/artists-collective.jpeg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 0;
+    }
+
+    .theme-toggle span {
+        position: relative;
+        z-index: 1;
     }
 
     [data-theme="light"] .theme-toggle {
-        background: rgba(0, 0, 0, 0.1);
-        border-color: rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.9) 100%);
+        border-color: rgba(0, 0, 0, 0.25);
         color: #1C1C1C;
+        font-weight: 700;
+        backdrop-filter: blur(12px);
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+        opacity: 0.1;
+    }
+
+    .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="light"] .theme-toggle:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Theme icon styling */
+    .theme-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
 
         * {
@@ -95,12 +140,41 @@
 
     /* Light theme body styles */
     [data-theme="light"] body {
-        background-color: var(--brand-black);
+        background-color: #FDFDFD;
         background-image:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.98) 32%, rgba(240, 240, 240, 0.97) 68%, rgba(255, 255, 255, 1) 100%),
-            radial-gradient(circle at top left, rgba(139, 195, 74, 0.1), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(3, 169, 244, 0.08), transparent 28%);
-        color: #1C1C1C;
+            linear-gradient(180deg, rgba(253, 253, 253, 1) 0%, rgba(250, 250, 250, 0.98) 32%, rgba(245, 245, 245, 0.96) 68%, rgba(255, 255, 255, 1) 100%),
+            radial-gradient(circle at top left, rgba(143, 175, 111, 0.06), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(90, 155, 212, 0.04), transparent 28%);
+        color: var(--text-primary);
+    }
+
+    [data-theme="light"] h1,
+    [data-theme="light"] h2,
+    [data-theme="light"] h3,
+    [data-theme="light"] h4,
+    [data-theme="light"] h5,
+    [data-theme="light"] h6 {
+        color: var(--text-primary);
+    }
+
+    [data-theme="light"] p,
+    [data-theme="light"] span,
+    [data-theme="light"] a {
+        color: var(--text-secondary);
+    }
+
+    [data-theme="light"] a:hover {
+        color: var(--text-primary);
+    }
+
+    [data-theme="light"] .text-outline {
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+        color: rgba(30, 30, 30, 0.95);
+    }
+
+    [data-theme="light"] .text-outline-white {
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.08);
+        color: rgba(28, 28, 28, 0.98);
     }
 
         h1, h2, h3, h4, h5, h6 {
@@ -139,9 +213,36 @@
     }
 
     [data-theme="light"] .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        border-color: rgba(0, 0, 0, 0.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        background: rgba(255, 255, 255, 0.85);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="light"] .btn-primary {
+        background-color: var(--forest);
+        color: white;
+    }
+
+    [data-theme="light"] .btn-primary:hover {
+        background-color: var(--bloom);
+    }
+
+    [data-theme="light"] .btn-secondary {
+        border-color: rgba(0, 0, 0, 0.15);
+        color: var(--text-primary);
+    }
+
+    [data-theme="light"] .btn-secondary:hover {
+        border-color: var(--forest);
+        background: rgba(46, 125, 50, 0.08);
+    }
+
+    [data-theme="light"] .btn-accent {
+        background-color: var(--forest);
+    }
+
+    [data-theme="light"] .btn-accent:hover {
+        background-color: var(--bloom);
     }
 
         /* Button Styles */
@@ -206,6 +307,10 @@
             background-size: 20px 20px;
         }
 
+        [data-theme="light"] .pattern-bg {
+            background-image: radial-gradient(rgba(46, 125, 50, 0.15) 0.5px, transparent 0.5px);
+        }
+
         /* Brush Accent Effect */
         .brush-accent {
             position: relative;
@@ -224,6 +329,10 @@
             background-size: 100% 100%;
             z-index: -1;
             pointer-events: none;
+        }
+
+        [data-theme="light"] .brush-accent::after {
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='20' viewBox='0 0 200 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10C50 2 150 18 200 10' stroke='%237CB342' stroke-width='6' stroke-opacity='0.6' stroke-linecap='round'/%3E%3C/svg%3E");
         }
 
         /* Marquee Animation */
@@ -849,6 +958,40 @@
             .hidden-mobile {
                 display: none;
             }
+
+            .theme-toggle-mobile {
+                width: 100%;
+                text-align: center;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+
+            [data-theme="light"] .theme-toggle-mobile {
+                border-top-color: rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* Image Styling */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme="light"] img:not(.logo-mark):not(.intro-bg):not(.ambient-image) {
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .logo-mark,
+        .intro-bg,
+        .ambient-image,
+        .hero-image {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -982,7 +1125,7 @@
                 <a href="#services" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('services')">Services</a>
                 <a href="#pricing" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('pricing')">Pricing</a>
                 <a href="#contact" class="text-xs uppercase tracking-widest font-bold transition-all relative py-1 hover:text-white text-white/50" onclick="navigateTo('contact')">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon">🌙 Dark</span></button>
                 <a href="#booking" class="btn-accent py-2 px-6 ml-4" onclick="navigateTo('booking')">Book Now</a>
             </div>
 
@@ -1024,7 +1167,8 @@
                 <a href="#booking" class="text-4xl uppercase tracking-tighter font-bold text-white" onclick="navigateTo('booking')">Booking</a>
             </div>
 
-            <div class="mt-auto">
+            <div class="mt-auto flex flex-col gap-4">
+                <button id="theme-toggle-mobile" class="theme-toggle theme-toggle-mobile" onclick="toggleTheme()"><span class="theme-icon">🌙 Dark</span></button>
                 <a href="#booking" class="btn-accent w-full block text-center py-5" onclick="navigateTo('booking')">Book a Session</a>
             </div>
         </div>
@@ -1145,7 +1289,7 @@
                         <div class="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-bloom/30"></div>
                         <div class="aspect-square overflow-hidden group rounded-2xl shadow-2xl">
                             <img
-                                src="assets/artists-collective.jpeg"
+                                src="assets/team.jpeg"
                                 alt="Good Vibes Africa artists and team"
                                 class="w-full h-full object-cover brightness-75 group-hover:scale-110 transition-all duration-1000"
                             />
@@ -1188,24 +1332,24 @@
 
                     <div class="grid md:grid-cols-3 gap-12 relative">
                         <div class="hidden md:block absolute top-[100px] left-0 w-full h-[1px] bg-white/5 -z-10"></div>
-                        <div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                            <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">01</span>
-                            <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Sonic Design</h3>
-                            <p class="text-white/40 leading-relaxed mb-10 text-sm">Consult with our team to choose the right session and producer for your unique sound.</p>
-                            <div class="text-4xl">🎨</div>
-                        </div>
-                        <div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                            <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">02</span>
-                            <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Master Capture</h3>
-                            <p class="text-white/40 leading-relaxed mb-10 text-sm">Step into our professional booths and record with world-class engineering support.</p>
-                            <div class="text-4xl">🎧</div>
-                        </div>
-                        <div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                            <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">03</span>
-                            <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Global Pulse</h3>
-                            <p class="text-white/40 leading-relaxed mb-10 text-sm">We polish your tracks with elite mixing and mastering, ready for global distribution.</p>
-                            <div class="text-4xl">🌍</div>
-                        </div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
+                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">01</span>
+                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Sonic Design</h3>
+                             <p class="text-white/40 leading-relaxed mb-10 text-sm">Consult with our team to choose the right session and producer for your unique sound.</p>
+                             <img src="assets/sonic design.jpg" alt="Sonic Design" class="w-16 h-16 object-cover rounded-lg" />
+                         </div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
+                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">02</span>
+                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Master Capture</h3>
+                             <p class="text-white/40 leading-relaxed mb-10 text-sm">Step into our professional booths and record with world-class engineering support.</p>
+                             <img src="assets/recording.jpeg" alt="Master Capture" class="w-16 h-16 object-cover rounded-lg" />
+                         </div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
+                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">03</span>
+                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Global Pulse</h3>
+                             <p class="text-white/40 leading-relaxed mb-10 text-sm">We polish your tracks with elite mixing and mastering, ready for global distribution.</p>
+                             <img src="assets/WhatsApp Image 2026-05-05 at 12.07.39.jpeg" alt="Global Pulse" class="w-16 h-16 object-cover rounded-lg" />
+                         </div>
                     </div>
                 </div>
             </section>
@@ -1234,7 +1378,7 @@
                             </div>
                         </div>
                         <div class="overflow-hidden group rounded-2xl relative">
-                            <img src="assets/studio-microphone.jpeg" alt="Microphone setup in the studio" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-all duration-700" />
+                            <img src="assets/recording.jpeg" alt="Microphone setup in the studio" class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-all duration-700" />
                             <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-brand-black via-brand-black/65 to-transparent">
                                 <p class="text-[9px] uppercase tracking-[0.3em] text-bloom">Vocal Chain</p>
                             </div>
@@ -2053,17 +2197,22 @@
         function toggleTheme() {
             const html = document.documentElement;
             const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
             const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            if (currentTheme === 'light') {
+            if (newTheme === 'dark') {
                 html.removeAttribute('data-theme');
-                themeToggle.textContent = '🌙 Dark';
+                const text = '<span class="theme-icon">🌙 Dark Mode</span>';
+                if (themeToggle) themeToggle.innerHTML = text;
+                if (themeToggleMobile) themeToggleMobile.innerHTML = text;
             } else {
                 html.setAttribute('data-theme', 'light');
-                themeToggle.textContent = '☀️ Light';
+                const text = '<span class="theme-icon">☀️ Light Mode</span>';
+                if (themeToggle) themeToggle.innerHTML = text;
+                if (themeToggleMobile) themeToggleMobile.innerHTML = text;
             }
 
-            // Save theme preference to localStorage
             localStorage.setItem('theme', html.getAttribute('data-theme') || 'dark');
         }
 
@@ -2122,9 +2271,9 @@
             const themeToggle = document.getElementById('theme-toggle');
             if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
-                themeToggle.textContent = '☀️ Light';
+                themeToggle.innerHTML = '<span class="theme-icon">☀️ Light Mode</span>';
             } else {
-                themeToggle.textContent = '🌙 Dark';
+                themeToggle.innerHTML = '<span class="theme-icon">🌙 Dark Mode</span>';
             }
 
             runIntroSequence();
