@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Vibes Africa - Premier Creative Studio</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -47,21 +48,21 @@
             box-sizing: border-box;
         }
 
-    body {
-        font-family: var(--font-body);
-        background-color: var(--brand-black);
-        background-image:
-            linear-gradient(180deg, rgba(12, 22, 18, 0.88) 0%, rgba(28, 28, 28, 0.96) 32%, rgba(19, 27, 31, 0.95) 68%, rgba(28, 28, 28, 1) 100%),
-            radial-gradient(circle at top left, rgba(149, 183, 26, 0.1), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(90, 193, 215, 0.08), transparent 28%);
-        color: white;
-        line-height: 1.6;
-        font-size: 16px;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+     body {
+         font-family: var(--font-body);
+         background-color: var(--brand-black);
+         background-image:
+             linear-gradient(180deg, rgba(12, 22, 18, 0.88) 0%, rgba(28, 28, 28, 0.96) 32%, rgba(19, 27, 31, 0.95) 68%, rgba(28, 28, 28, 1) 100%),
+             radial-gradient(circle at top left, rgba(149, 183, 26, 0.1), transparent 34%),
+             radial-gradient(circle at bottom right, rgba(90, 193, 215, 0.08), transparent 28%);
+         color: white;
+        line-height: 1.7;
+        font-size: 18px;
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale;
+         text-rendering: optimizeLegibility;
+         transition: background-color 0.3s ease, color 0.3s ease;
+     }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
@@ -401,6 +402,57 @@
             filter: blur(60px);
         }
 
+        /* Reveal-on-scroll entrance animations (PowerPoint-style) */
+        @keyframes reveal-fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes reveal-fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes reveal-zoom-in {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .reveal-up,
+        .reveal-fade,
+        .reveal-zoom {
+            opacity: 0;
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-up   { transform: translateY(30px); }
+        .reveal-zoom { transform: scale(0.95); }
+
+        .reveal-up.is-visible,
+        .reveal-fade.is-visible,
+        .reveal-zoom.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered delays for children/groups */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Card hover: subtle lift + glow (already defined, enhance slightly) */
+        .glass-card {
+            will-change: transform, box-shadow;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.22),
+                        0 0 0 1px rgba(149,183,26,0.12);
+        }
+
         .intro-overlay.hidden {
             opacity: 0;
             visibility: hidden;
@@ -675,30 +727,30 @@
             padding-bottom: 32px;
         }
 
-        .py-12 {
-            padding-top: 48px;
-            padding-bottom: 48px;
-        }
+         .py-12 {
+             padding-top: 64px;
+             padding-bottom: 64px;
+         }
 
-        .py-16 {
-            padding-top: 64px;
-            padding-bottom: 64px;
-        }
+         .py-16 {
+             padding-top: 80px;
+             padding-bottom: 80px;
+         }
 
-        .py-20 {
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
+         .py-20 {
+             padding-top: 100px;
+             padding-bottom: 100px;
+         }
 
-        .py-32 {
-            padding-top: 128px;
-            padding-bottom: 128px;
-        }
+         .py-32 {
+             padding-top: 144px;
+             padding-bottom: 144px;
+         }
 
-        .py-40 {
-            padding-top: 160px;
-            padding-bottom: 160px;
-        }
+         .py-40 {
+             padding-top: 180px;
+             padding-bottom: 180px;
+         }
 
         .mb-4 {
             margin-bottom: 16px;
@@ -1071,22 +1123,22 @@
         <div id="brand-marquee" class="bg-bloom text-brand-black overflow-hidden border-b border-brand-black/10 py-1">
             <div class="animate-marquee whitespace-nowrap flex gap-10">
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em]">
-                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." — #GOODVIBESALLTHEWAY —
+                    "Every beat carries a feeling, every melody sparks a mood. We believe in vibes that move you." â€” #GOODVIBESALLTHEWAY â€”
                 </span>
             </div>
         </div>
@@ -1192,15 +1244,15 @@
                         <span class="text-bloom inline-block font-bold tracking-[0.4em] uppercase text-xs mb-8">
                             Kigezi's Premier Creative Studio
                         </span>
-                    <h1 class="text-7xl md:text-[11rem] font-black mb-8 tracking-tighter leading-[0.8]">
+                    <h1 class="text-7xl md:text-[11rem] font-black mb-8 tracking-tighter leading-[0.8] reveal-up" data-reveal>
                         <span class="block text-outline opacity-40">FEEL THE</span>
                         <span class="block text-gradient-bloom brush-accent">VIBES</span>
                     </h1>
-                    <p class="text-white/70 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed mb-12 font-light">
-                        Music is more than sound — it's a journey of vibrations, energy, and connection.
+                    <p class="text-white/70 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed mb-12 font-light reveal-up stagger-1" data-reveal>
+                        Music is more than sound â€” it's a journey of vibrations, energy, and connection.
                         Every beat carries a feeling, every melody sparks a mood.
                     </p>
-                    <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <div class="flex flex-col md:flex-row gap-6 justify-center reveal-up stagger-2" data-reveal>
                         <a href="#booking" class="btn-accent flex items-center justify-center gap-3 px-12" onclick="navigateTo('booking')">
                             Book a Session
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1209,8 +1261,8 @@
                         </a>
                         <a href="#services" class="btn-secondary px-12" onclick="navigateTo('services')">Explore Services</a>
                     </div>
-                    <div class="mt-12 flex justify-center">
-                        <div class="glass-card px-5 py-4 flex items-center gap-4 max-w-md text-left float-drift">
+                     <div class="mt-12 flex justify-center">
+                         <div class="glass-card px-5 py-4 flex items-center gap-4 max-w-md text-left float-drift reveal-fade stagger-3" data-reveal>
                             <div class="w-14 h-14 logo-shell rounded-2xl overflow-hidden shrink-0">
                                 <img src="assets/logo.jpeg" alt="Good Vibes Africa logo" class="logo-mark" />
                             </div>
@@ -1234,34 +1286,34 @@
             <div class="bg-bloom/5 border-y border-white/5 py-4 overflow-hidden">
                 <div class="animate-marquee whitespace-nowrap">
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                     <span class="text-white/30 text-xs font-bold uppercase tracking-[0.5em] px-20">
-                        Good Vibes Africa • Studio Sessions • Production • Mastering • Distribution •
+                        Good Vibes Africa â€¢ Studio Sessions â€¢ Production â€¢ Mastering â€¢ Distribution â€¢
                     </span>
                 </div>
             </div>
@@ -1286,24 +1338,24 @@
                             <p class="text-brand-black font-bold text-5xl leading-none">AFRICA<br /><span class="text-earth-blue">ROOTS</span></p>
                         </div>
                     </div>
-                    <div>
-                        <span class="text-bloom font-bold tracking-widest text-xs uppercase mb-6 block">Our Pulse</span>
-                        <h2 class="text-5xl md:text-7xl mb-10 leading-none tracking-tighter">from Kigezi <br />to the <span class="brush-accent">world</span></h2>
-                        <div class="space-y-8 text-white/50 leading-relaxed text-lg font-light">
-                            <p>
-                                At Good Vibes Africa, we don't just record music — we create experiences.
-                                Our studio is built on passion, creativity, and a deep understanding of sound.
-                            </p>
-                            <p>
-                                Every artist who walks through our doors becomes part of a movement
-                                driven by authenticity and excellence.
-                            </p>
-                            <div class="p-6 border border-white/5 bg-white/5 rounded-2xl">
-                                <p class="text-bloom font-bold text-2xl tracking-tighter italic">"We believe in vibes that move you."</p>
-                            </div>
-                        </div>
-                        <a href="#about" class="btn-secondary mt-12" onclick="navigateTo('about')">Our Vision</a>
-                    </div>
+                     <div>
+                         <span class="text-bloom font-bold tracking-widest text-xs uppercase mb-6 block reveal-up" data-reveal>Our Pulse</span>
+                        <h2 class="text-5xl md:text-7xl mb-10 leading-none tracking-tighter reveal-up stagger-1" data-reveal>from Kigezi <br />to the <span class="brush-accent">world</span></h2>
+                          <div class="space-y-8 text-white/50 leading-relaxed text-lg font-light max-w-3xl">
+                              <p class="reveal-up stagger-2" data-reveal>
+                                 At Good Vibes Africa, we don't just record music â€” we create experiences.
+                                 Our studio is built on passion, creativity, and a deep understanding of sound.
+                             </p>
+                             <p class="reveal-up stagger-3" data-reveal>
+                                 Every artist who walks through our doors becomes part of a movement
+                                 driven by authenticity and excellence.
+                             </p>
+                            <div class="p-6 border border-white/5 bg-white/5 rounded-2xl reveal-up stagger-4" data-reveal>
+                                 <p class="text-bloom font-bold text-2xl tracking-tighter italic">"We believe in vibes that move you."</p>
+                             </div>
+                         </div>
+                        <a href="#about" class="btn-secondary mt-12 reveal-up stagger-5" data-reveal onclick="navigateTo('about')">Our Vision</a>
+                     </div>
                 </div>
             </section>
 
@@ -1313,31 +1365,31 @@
                     <img src="assets/WhatsApp Image 2026-05-05 at 12.06.42 (3).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
                 </div>
                 <div class="container relative z-10">
-                    <div class="text-center mb-20">
-                        <h2 class="text-5xl md:text-8xl mb-6 leading-none uppercase tracking-tighter">Artist <span class="text-outline block md:inline opacity-30">Journey</span></h2>
-                        <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">The GVA Process</p>
-                    </div>
+                     <div class="text-center mb-20 reveal-up" data-reveal>
+                         <h2 class="text-5xl md:text-8xl mb-6 leading-none uppercase tracking-tighter">Artist <span class="text-outline block md:inline opacity-30">Journey</span></h2>
+                         <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">The GVA Process</p>
+                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-12 relative">
-                        <div class="hidden md:block absolute top-[100px] left-0 w-full h-[1px] bg-white/5 -z-10"></div>
-<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">01</span>
-                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Sonic Design</h3>
-                             <p class="text-white/40 leading-relaxed mb-10 text-sm">Consult with our team to choose the right session and producer for your unique sound.</p>
-                             <img src="assets/sonic design.jpg" alt="Sonic Design" class="w-16 h-16 object-cover rounded-lg" />
-                         </div>
-<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">02</span>
-                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Master Capture</h3>
-                             <p class="text-white/40 leading-relaxed mb-10 text-sm">Step into our professional booths and record with world-class engineering support.</p>
-                             <img src="assets/recording.jpeg" alt="Master Capture" class="w-16 h-16 object-cover rounded-lg" />
-                         </div>
-<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10">
-                             <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">03</span>
-                             <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Global Pulse</h3>
-                             <p class="text-white/40 leading-relaxed mb-10 text-sm">We polish your tracks with elite mixing and mastering, ready for global distribution.</p>
-                             <img src="assets/WhatsApp Image 2026-05-05 at 12.07.39.jpeg" alt="Global Pulse" class="w-16 h-16 object-cover rounded-lg" />
-                         </div>
+                     <div class="grid md:grid-cols-3 gap-12 relative">
+                         <div class="hidden md:block absolute top-[100px] left-0 w-full h-[1px] bg-white/5 -z-10"></div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10 reveal-zoom stagger-1" data-reveal>
+                              <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">01</span>
+                              <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Sonic Design</h3>
+                              <p class="text-white/40 leading-relaxed mb-10 text-sm">Consult with our team to choose the right session and producer for your unique sound.</p>
+                              <img src="assets/sonic design.jpg" alt="Sonic Design" class="w-16 h-16 object-cover rounded-lg" />
+                          </div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10 reveal-zoom stagger-2" data-reveal>
+                              <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">02</span>
+                              <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Master Capture</h3>
+                              <p class="text-white/40 leading-relaxed mb-10 text-sm">Step into our professional booths and record with world-class engineering support.</p>
+                              <img src="assets/recording.jpeg" alt="Master Capture" class="w-16 h-16 object-cover rounded-lg" />
+                          </div>
+<div class="glass-card p-12 hover-glow border-t-2 border-t-bloom/10 reveal-zoom stagger-3" data-reveal>
+                              <span class="font-heading text-bloom text-7xl font-bold opacity-10 block mb-8">03</span>
+                              <h3 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Global Pulse</h3>
+                              <p class="text-white/40 leading-relaxed mb-10 text-sm">We polish your tracks with elite mixing and mastering, ready for global distribution.</p>
+                              <img src="assets/WhatsApp Image 2026-05-05 at 12.07.39.jpeg" alt="Global Pulse" class="w-16 h-16 object-cover rounded-lg" />
+                          </div>
                     </div>
                 </div>
             </section>
@@ -1423,24 +1475,24 @@
                 </div>
             </section>
 
-            <!-- CTA Section -->
-            <section class="py-40 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
-                    <img src="assets/WhatsApp Image 2026-05-05 at 12.15.10.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
-                </div>
-                <div class="container relative z-10">
-                    <div class="bg-white p-16 md:p-32 flex flex-col md:flex-row items-center justify-between gap-16 relative overflow-hidden text-brand-black rounded-[2rem] md:rounded-[4rem] shadow-2xl">
-                        <div class="absolute bottom-0 right-0 w-96 h-96 bg-bloom/10 -translate-x-12 translate-y-12 rounded-full"></div>
-                        <div class="relative z-10 text-center md:text-left max-w-xl">
-                            <h2 class="text-5xl md:text-7xl font-bold mb-6 tracking-tighter lowercase leading-none">ready to create <br /><span class="text-bloom italic">your sound?</span></h2>
-                            <p class="text-brand-black/60 text-xl font-light">Book your session today and start your musical journey with us.</p>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-6 relative z-10 scale-110">
-                            <a href="#booking" class="btn-accent bg-brand-black text-white px-16 py-6 border-none" onclick="navigateTo('booking')">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+             <!-- CTA Section -->
+             <section class="py-40 relative overflow-hidden">
+                 <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                     <img src="assets/WhatsApp Image 2026-05-05 at 12.15.10.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
+                 </div>
+                 <div class="container relative z-10">
+                     <div class="bg-white p-16 md:p-32 flex flex-col md:flex-row items-center justify-between gap-16 relative overflow-hidden text-brand-black rounded-[2rem] md:rounded-[4rem] shadow-2xl reveal-up" data-reveal>
+                         <div class="absolute bottom-0 right-0 w-96 h-96 bg-bloom/10 -translate-x-12 translate-y-12 rounded-full"></div>
+                         <div class="relative z-10 text-center md:text-left max-w-xl">
+                             <h2 class="text-5xl md:text-7xl font-bold mb-6 tracking-tighter lowercase leading-none">ready to create <br /><span class="text-bloom italic">your sound?</span></h2>
+                             <p class="text-brand-black/60 text-xl font-light">Book your session today and start your musical journey with us.</p>
+                         </div>
+                         <div class="flex flex-col sm:flex-row gap-6 relative z-10 scale-110">
+                             <a href="#booking" class="btn-accent bg-brand-black text-white px-16 py-6 border-none" onclick="navigateTo('booking')">Get Started</a>
+                         </div>
+                     </div>
+                 </div>
+             </section>
         </section>
 
         <!-- About Section -->
@@ -1448,25 +1500,25 @@
             <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
                 <img src="assets/ceo-founder.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
             </div>
-            <div class="container relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-bloom font-bold tracking-widest text-xs uppercase mb-6 block">About Good Vibes Africa</span>
-                    <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Story</span></h1>
-                </div>
-                <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter">Born from Kigezi's <br /><span class="brush-accent">Creative Spirit</span></h2>
-                        <div class="space-y-6 text-white/70 leading-relaxed text-lg">
-                            <p>
-                                Good Vibes Africa emerged from the rich musical heritage of the Kigezi region in Uganda.
-                                What started as a small recording space has grown into East Africa's premier creative hub,
-                                where local and international artists come to craft sounds that resonate globally.
-                            </p>
-                            <p>
-                                Our founder, a passionate music producer with roots in the vibrant Kigezi music scene,
-                                recognized the need for world-class recording facilities that understand both local rhythms
-                                and international standards. Today, GVA stands as a beacon of excellence in African music production.
-                            </p>
+             <div class="container relative z-10">
+                 <div class="text-center mb-20 reveal-up" data-reveal>
+                     <span class="text-bloom font-bold tracking-widest text-xs uppercase mb-6 block">About Good Vibes Africa</span>
+                     <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Story</span></h1>
+                 </div>
+                 <div class="grid md:grid-cols-2 gap-20 items-center">
+                     <div>
+                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter reveal-up stagger-1" data-reveal>Born from Kigezi's <br /><span class="brush-accent">Creative Spirit</span></h2>
+                         <div class="space-y-6 text-white/70 leading-relaxed text-lg">
+                             <p class="reveal-up stagger-2" data-reveal>
+                                 Good Vibes Africa emerged from the rich musical heritage of the Kigezi region in Uganda.
+                                 What started as a small recording space has grown into East Africa's premier creative hub,
+                                 where local and international artists come to craft sounds that resonate globally.
+                             </p>
+                            <p class="reveal-up stagger-3" data-reveal>
+                                 Our founder, a passionate music producer with roots in the vibrant Kigezi music scene,
+                                 recognized the need for world-class recording facilities that understand both local rhythms
+                                 and international standards. Today, GVA stands as a beacon of excellence in African music production.
+                             </p>
                         </div>
                     </div>
                     <div class="relative">
@@ -1481,33 +1533,33 @@
             <div class="absolute inset-0 opacity-[0.08] pointer-events-none">
                 <img src="assets/Producer.jpeg" alt="" class="w-full h-full object-cover ambient-image" />
             </div>
-            <div class="container relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Producer's Word</span>
-                    <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">A Message from <span class="text-outline opacity-30">the Producer</span></h1>
-                </div>
-                <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <img src="assets/Producer.jpeg" alt="Portrait of the producer" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]" />
-                    </div>
-                    <div>
-                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter">Crafting Sounds that <br /><span class="brush-accent">Resonate</span></h2>
-                        <div class="space-y-6 text-white/70 leading-relaxed text-lg">
-                            <p>
-                                As the producer behind Good Vibes Africa, my passion lies in transforming raw talent into polished masterpieces.
-                                Every track we create carries the essence of Kigezi's rich musical heritage while embracing modern production techniques.
-                            </p>
-                            <p>
-                                Music production is more than technical expertise—it's about capturing emotion, creating atmosphere,
-                                and helping artists find their unique voice in a crowded industry.
-                            </p>
-                            <p>
-                                Join us in this creative journey where your sound meets our vision, and together we craft music that moves the world.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             <div class="container relative z-10">
+                 <div class="text-center mb-20 reveal-up" data-reveal>
+                     <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Producer's Word</span>
+                     <h1 class="text-5xl md:text-8xl mb-10 leading-none tracking-tighter">A Message from <span class="text-outline opacity-30">the Producer</span></h1>
+                 </div>
+                 <div class="grid md:grid-cols-2 gap-20 items-center">
+                     <div>
+                         <img src="assets/Producer.jpeg" alt="Portrait of the producer" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]" />
+                     </div>
+                     <div>
+                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter reveal-up stagger-1" data-reveal>Crafting Sounds that <br /><span class="brush-accent">Resonate</span></h2>
+                         <div class="space-y-6 text-white/70 leading-relaxed text-lg">
+                            <p class="reveal-up stagger-2" data-reveal>
+                                 As the producer behind Good Vibes Africa, my passion lies in transforming raw talent into polished masterpieces.
+                                 Every track we create carries the essence of Kigezi's rich musical heritage while embracing modern production techniques.
+                             </p>
+                            <p class="reveal-up stagger-3" data-reveal>
+                                 Music production is more than technical expertiseâ€”it's about capturing emotion, creating atmosphere,
+                                 and helping artists find their unique voice in a crowded industry.
+                             </p>
+                            <p class="reveal-up stagger-4" data-reveal>
+                                 Join us in this creative journey where your sound meets our vision, and together we craft music that moves the world.
+                             </p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
         </section>
 
         <!-- Featured Artists Section -->
@@ -1517,67 +1569,68 @@
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-brand-black/75 via-brand-black/92 to-coal/95"></div>
             <div class="absolute inset-x-0 top-0 h-[2px] section-sheen"></div>
-            <div class="container relative z-10">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
-                    <div class="max-w-2xl">
-                        <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Featured Artists</span>
-                        <h2 class="text-5xl md:text-8xl mt-6 leading-none tracking-tighter">
-                            Voices With <span class="text-outline opacity-30">Real Stories</span>
-                        </h2>
-                    </div>
-                    <p class="text-white/50 max-w-md leading-relaxed">
-                        A few of the artists and crews shaping the Good Vibes Africa sound, with short reflections on the studio atmosphere.
-                    </p>
-                </div>
+             <div class="container relative z-10">
+                 <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+                     <div class="max-w-2xl">
+                         <span class="text-bloom font-bold tracking-[0.5em] uppercase text-xs">Featured Artists</span>
+                        <h2 class="text-5xl md:text-8xl mt-6 leading-none tracking-tighter reveal-up" data-reveal>
+                             Voices With <span class="text-outline opacity-30">Real Stories</span>
+                         </h2>
+                     </div>
+                     <p class="text-white/50 max-w-md leading-relaxed">
+                         A few of the artists and crews shaping the Good Vibes Africa sound, with short reflections on the studio atmosphere.
+                     </p>
+                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
-                        <div class="relative aspect-[4/5] overflow-hidden">
-                            <img src="assets/amani-featured-artist.jpeg" alt="Featured artist Amani Amaniga" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
-                            <div class="absolute left-5 bottom-5">
-                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
-                                <h3 class="text-2xl font-bold uppercase tracking-tight">Amani Amaniga</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-white/75 leading-relaxed">
-                                "The studio feels close to home, but the sound comes out polished and ready for a bigger stage."
-                            </p>
-                        </div>
-                    </article>
+                 <div class="grid md:grid-cols-3 gap-8">
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl reveal-zoom stagger-1" data-reveal>
+                         <div class="relative aspect-[4/5] overflow-hidden">
+                             <img src="assets/amani-featured-artist.jpeg" alt="Featured artist Amani Amaniga" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                             <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+                             <div class="absolute left-5 bottom-5">
+                                 <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
+                                 <h3 class="text-2xl font-bold uppercase tracking-tight">Amani Amaniga</h3>
+                             </div>
+                         </div>
+                         <div class="p-6">
+                             <p class="text-white/75 leading-relaxed">
+                                 "The studio feels close to home, but the sound comes out polished and ready for a bigger stage."
+                             </p>
+                         </div>
+                     </article>
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-bloom/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl reveal-zoom stagger-2" data-reveal>
+                         <div class="relative aspect-[4/5] overflow-hidden">
+                             <img src="assets/sir-kisoro-featured-artist.jpeg" alt="Featured artist Sir Kisoro" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                             <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/25 to-transparent"></div>
+                             <div class="absolute left-5 bottom-5">
+                                 <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
+                                 <h3 class="text-2xl font-bold uppercase tracking-tight">Sir Kisoro</h3>
+                             </div>
+                         </div>
+                         <div class="p-6">
+                             <p class="text-white/80 leading-relaxed">
+                                 "There is a calm in the room that lets ideas land quickly. You hear the feeling before the take is even done."
+                             </p>
+                         </div>
+                     </article>
+                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-lake-blue/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl reveal-zoom stagger-3" data-reveal>
+                         <div class="relative aspect-[4/5] overflow-hidden">
+                             <img src="assets/performer-qwela.jpeg" alt="Featured artist Qwela session" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                             <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
+                             <div class="absolute left-5 bottom-5">
+                                 <p class="text-[10px] uppercase tracking-[0.35em] text-lake-blue mb-2">Live Session</p>
+                                 <h3 class="text-2xl font-bold uppercase tracking-tight">Qwela Circle</h3>
+                             </div>
+                         </div>
+                         <div class="p-6">
+                             <p class="text-white/80 leading-relaxed">
+                                 "Good Vibes keeps the energy raw, musical, and honest. That balance is what makes a session memorable."
+                             </p>
+                         </div>
+                     </article>
 
-                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-bloom/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
-                        <div class="relative aspect-[4/5] overflow-hidden">
-                            <img src="assets/sir-kisoro-featured-artist.jpeg" alt="Featured artist Sir Kisoro" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/25 to-transparent"></div>
-                            <div class="absolute left-5 bottom-5">
-                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Featured Artist</p>
-                                <h3 class="text-2xl font-bold uppercase tracking-tight">Sir Kisoro</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-white/80 leading-relaxed">
-                                "There is a calm in the room that lets ideas land quickly. You hear the feeling before the take is even done."
-                            </p>
-                        </div>
-                    </article>
+                 
 
-                    <article class="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-lake-blue/10 backdrop-blur-sm hover:-translate-y-2 transition-all duration-500 shadow-2xl">
-                        <div class="relative aspect-[4/5] overflow-hidden">
-                            <img src="assets/performer-qwela.jpeg" alt="Featured artist Qwela session" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent"></div>
-                            <div class="absolute left-5 bottom-5">
-                                <p class="text-[10px] uppercase tracking-[0.35em] text-lake-blue mb-2">Live Session</p>
-                                <h3 class="text-2xl font-bold uppercase tracking-tight">Qwela Circle</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-white/80 leading-relaxed">
-                                "Good Vibes keeps the energy raw, musical, and honest. That balance is what makes a session memorable."
-                            </p>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -1588,53 +1641,53 @@
                 <img src="assets/WhatsApp Image 2026-05-05 at 12.03.57 (1).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
             </div>
             <div class="container relative z-10">
-                <div class="text-center mb-20">
-                    <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Services</span></h1>
-                    <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Complete Music Production Solutions</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/recording.jpeg" alt="Recording setup" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Recording</h3>
-                        <p class="text-white/60 leading-relaxed">Professional recording sessions with state-of-the-art equipment and expert engineers.</p>
-                    </div>
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/mixer.jpeg" alt="Audio mixer console" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Mixing & Mastering</h3>
-                        <p class="text-white/60 leading-relaxed">Industry-standard mixing and mastering services to polish your tracks to perfection.</p>
-                    </div>
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/drum-detail.jpeg" alt="Drum kit detail" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Production</h3>
-                        <p class="text-white/60 leading-relaxed">Full production services including arrangement, instrumentation, and creative direction.</p>
-                    </div>
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/WhatsApp Image 2026-05-05 at 12.03.57 (3).jpeg" alt="Global distribution network" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Distribution</h3>
-                        <p class="text-white/60 leading-relaxed">Global music distribution and marketing services to reach audiences worldwide.</p>
-                    </div>
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/performer-qwela.jpeg" alt="Artist performing" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Artist Development</h3>
-                        <p class="text-white/60 leading-relaxed">Comprehensive artist development programs and career guidance.</p>
-                    </div>
-                    <div class="glass-card p-8 hover-glow">
-                        <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
-                            <img src="assets/session-duo.jpeg" alt="Collaborative workshop session" class="w-full h-full object-cover" />
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Workshops</h3>
-                        <p class="text-white/60 leading-relaxed">Music production workshops and training sessions for aspiring artists and producers.</p>
-                    </div>
+                     <div class="text-center mb-20 reveal-up" data-reveal>
+                         <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Our <span class="text-outline opacity-30">Services</span></h1>
+                         <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Complete Music Production Solutions</p>
+                     </div>
+                     <div class="grid md:grid-cols-3 gap-12">
+                        <div class="glass-card p-8 hover-glow reveal-fade stagger-1" data-reveal>
+                             <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                                 <img src="assets/recording.jpeg" alt="Recording setup" class="w-full h-full object-cover" />
+                             </div>
+                             <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Recording</h3>
+                             <p class="text-white/60 leading-relaxed">Professional recording sessions with state-of-the-art equipment and expert engineers.</p>
+                         </div>
+                        <div class="glass-card p-8 hover-glow reveal-fade stagger-2" data-reveal>
+                             <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                                 <img src="assets/mixer.jpeg" alt="Audio mixer console" class="w-full h-full object-cover" />
+                             </div>
+                             <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Mixing & Mastering</h3>
+                             <p class="text-white/60 leading-relaxed">Industry-standard mixing and mastering services to polish your tracks to perfection.</p>
+                         </div>
+                        <div class="glass-card p-8 hover-glow reveal-fade stagger-3" data-reveal>
+                             <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                                 <img src="assets/drum-detail.jpeg" alt="Drum kit detail" class="w-full h-full object-cover" />
+                             </div>
+                             <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Production</h3>
+                         <p class="text-white/60 leading-relaxed">Full production services including arrangement, instrumentation, and creative direction.</p>
+                     </div>
+                    <div class="glass-card p-8 hover-glow reveal-fade stagger-4" data-reveal>
+                         <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                             <img src="assets/WhatsApp Image 2026-05-05 at 12.03.57 (3).jpeg" alt="Global distribution network" class="w-full h-full object-cover" />
+                         </div>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Distribution</h3>
+                         <p class="text-white/60 leading-relaxed">Global music distribution and marketing services to reach audiences worldwide.</p>
+                     </div>
+                    <div class="glass-card p-8 hover-glow reveal-fade stagger-5" data-reveal>
+                         <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                             <img src="assets/performer-qwela.jpeg" alt="Artist performing" class="w-full h-full object-cover" />
+                         </div>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Artist Development</h3>
+                         <p class="text-white/60 leading-relaxed">Comprehensive artist development programs and career guidance.</p>
+                     </div>
+                    <div class="glass-card p-8 hover-glow reveal-fade stagger-6" data-reveal>
+                         <div class="w-16 h-16 mb-6 rounded-lg overflow-hidden">
+                             <img src="assets/session-duo.jpeg" alt="Collaborative workshop session" class="w-full h-full object-cover" />
+                         </div>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Workshops</h3>
+                         <p class="text-white/60 leading-relaxed">Music production workshops and training sessions for aspiring artists and producers.</p>
+                     </div>
                 </div>
             </div>
         </section>
@@ -1657,49 +1710,49 @@
                         Transparent studio rates for singles, EPs, albums, and ongoing creative work.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="group relative overflow-hidden bg-brand-black/80 border border-white/10 p-8 rounded-2xl hover:border-bloom/60 hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute top-0 left-0 h-1 w-full bg-white/10 group-hover:bg-bloom transition-colors"></div>
-                        <p class="text-[10px] uppercase tracking-[0.35em] text-white/40 mb-4">Per Hour</p>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Studio Session</h3>
-                        <div class="text-3xl md:text-4xl font-bold text-bloom mb-6">UGX 50K - 80K<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Studio session</span></div>
-                        <ul class="space-y-3 text-white/70 mb-8">
-                            <li>Professional recording booth</li>
-                            <li>Expert sound engineer</li>
-                            <li>High-quality mic setup</li>
-                            <li>Standard gear access</li>
-                        </ul>
-                        <a href="#booking" class="btn-secondary w-full block text-center" onclick="navigateTo('booking')">Book Now</a>
-                    </div>
-                    <div class="group relative overflow-hidden bg-lake-blue/10 border border-lake-blue p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 shadow-[0_0_30px_rgba(90,193,215,0.08)]">
-                        <div class="absolute top-4 right-4 bg-lake-blue text-brand-black px-3 py-1 text-[9px] font-bold uppercase tracking-widest rounded-full">Popular</div>
-                        <div class="absolute top-0 left-0 h-1 w-full bg-lake-blue"></div>
-                        <p class="text-[10px] uppercase tracking-[0.35em] text-lake-blue mb-4">Per Hour</p>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Producer Session</h3>
-                        <div class="text-3xl md:text-4xl font-bold text-lake-blue mb-6">UGX 70K - 120K<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Producer session</span></div>
-                        <ul class="space-y-3 text-white/70 mb-8">
-                            <li>Arrangement assistance</li>
-                            <li>Beat-making and music design</li>
-                            <li>Instrument tracking</li>
-                            <li>Creative direction</li>
-                            <li>Collaborative producer insight</li>
-                        </ul>
-                        <a href="#booking" class="btn-accent w-full block text-center bg-lake-blue text-brand-black hover:bg-white" onclick="navigateTo('booking')">Book Now</a>
-                    </div>
-                    <div class="group relative overflow-hidden bg-brand-black/80 border border-white/10 p-8 rounded-2xl hover:border-bloom/60 hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute top-0 left-0 h-1 w-full bg-white/10 group-hover:bg-bloom transition-colors"></div>
-                        <p class="text-[10px] uppercase tracking-[0.35em] text-white/40 mb-4">Project</p>
-                        <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Music Packages</h3>
-                        <div class="text-3xl md:text-4xl font-bold text-bloom mb-6">UGX 300K - 4.5M<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Single, EP, or album</span></div>
-                        <ul class="space-y-3 text-white/70 mb-8">
-                            <li>Single track: UGX 300K - 500K</li>
-                            <li>EP package: UGX 1.2M - 2M</li>
-                            <li>Album package: UGX 2.5M - 4.5M</li>
-                            <li>Mixing and mastering included</li>
-                            <li>Distribution consultation</li>
-                        </ul>
-                        <a href="#booking" class="btn-secondary w-full block text-center" onclick="navigateTo('booking')">Book Now</a>
-                    </div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="group relative overflow-hidden bg-brand-black/80 border border-white/10 p-8 rounded-2xl hover:border-bloom/60 hover:-translate-y-1 transition-all duration-300 reveal-zoom stagger-1" data-reveal>
+                         <div class="absolute top-0 left-0 h-1 w-full bg-white/10 group-hover:bg-bloom transition-colors"></div>
+                         <p class="text-[10px] uppercase tracking-[0.35em] text-white/40 mb-4">Per Hour</p>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Studio Session</h3>
+                         <div class="text-3xl md:text-4xl font-bold text-bloom mb-6">UGX 50K - 80K<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Studio session</span></div>
+                         <ul class="space-y-3 text-white/70 mb-8">
+                             <li>Professional recording booth</li>
+                             <li>Expert sound engineer</li>
+                             <li>High-quality mic setup</li>
+                             <li>Standard gear access</li>
+                         </ul>
+                         <a href="#booking" class="btn-secondary w-full block text-center" onclick="navigateTo('booking')">Book Now</a>
+                     </div>
+                    <div class="group relative overflow-hidden bg-lake-blue/10 border border-lake-blue p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 shadow-[0_0_30px_rgba(90,193,215,0.08)] reveal-zoom stagger-2" data-reveal>
+                         <div class="absolute top-4 right-4 bg-lake-blue text-brand-black px-3 py-1 text-[9px] font-bold uppercase tracking-widest rounded-full">Popular</div>
+                         <div class="absolute top-0 left-0 h-1 w-full bg-lake-blue"></div>
+                         <p class="text-[10px] uppercase tracking-[0.35em] text-lake-blue mb-4">Per Hour</p>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Producer Session</h3>
+                         <div class="text-3xl md:text-4xl font-bold text-lake-blue mb-6">UGX 70K - 120K<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Producer session</span></div>
+                         <ul class="space-y-3 text-white/70 mb-8">
+                             <li>Arrangement assistance</li>
+                             <li>Beat-making and music design</li>
+                             <li>Instrument tracking</li>
+                             <li>Creative direction</li>
+                             <li>Collaborative producer insight</li>
+                         </ul>
+                         <a href="#booking" class="btn-accent w-full block text-center bg-lake-blue text-brand-black hover:bg-white" onclick="navigateTo('booking')">Book Now</a>
+                     </div>
+                    <div class="group relative overflow-hidden bg-brand-black/80 border border-white/10 p-8 rounded-2xl hover:border-bloom/60 hover:-translate-y-1 transition-all duration-300 reveal-zoom stagger-3" data-reveal>
+                         <div class="absolute top-0 left-0 h-1 w-full bg-white/10 group-hover:bg-bloom transition-colors"></div>
+                         <p class="text-[10px] uppercase tracking-[0.35em] text-white/40 mb-4">Project</p>
+                         <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Music Packages</h3>
+                         <div class="text-3xl md:text-4xl font-bold text-bloom mb-6">UGX 300K - 4.5M<span class="block text-xs text-white/40 uppercase tracking-widest mt-2">Single, EP, or album</span></div>
+                         <ul class="space-y-3 text-white/70 mb-8">
+                             <li>Single track: UGX 300K - 500K</li>
+                             <li>EP package: UGX 1.2M - 2M</li>
+                             <li>Album package: UGX 2.5M - 4.5M</li>
+                             <li>Mixing and mastering included</li>
+                             <li>Distribution consultation</li>
+                         </ul>
+                         <a href="#booking" class="btn-secondary w-full block text-center" onclick="navigateTo('booking')">Book Now</a>
+                     </div>
                 </div>
 
                 <div class="mt-8 grid md:grid-cols-4 gap-4">
@@ -1736,55 +1789,65 @@
             <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
                 <img src="assets/WhatsApp Image 2026-05-05 at 12.03.55 (2).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
             </div>
-            <div class="container relative z-10">
-                <div class="text-center mb-20">
-                    <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Get In <span class="text-outline opacity-30">Touch</span></h1>
-                    <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Create Something Amazing</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-20">
-                    <div>
-                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter">Ready to Start <br /><span class="brush-accent">Your Project?</span></h2>
-                        <div class="space-y-8">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
-                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">Location</h3>
-                                    <p class="text-white/70">Burambira Heights, Kisoro Rd, Kabale, Uganda</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">Phone</h3>
-                                    <p class="text-white/70">  0787776865</p>
-                                    <p class="text-white/70"> Joe Kahiri</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">Email</h3>
-                                    <p class="text-white/70">info@goodvibes.africa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-card p-8">
-                        <form id="contact-form" class="space-y-6">
+             <div class="container relative z-10">
+                 <div class="text-center mb-20 reveal-up" data-reveal>
+                     <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Get In <span class="text-outline opacity-30">Touch</span></h1>
+                     <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Create Something Amazing</p>
+                 </div>
+                 <div class="grid md:grid-cols-2 gap-20">
+                     <div>
+                        <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter reveal-up stagger-1" data-reveal>Ready to Start <br /><span class="brush-accent">Your Project?</span></h2>
+                         <div class="space-y-8">
+                             <div class="flex items-start gap-4 reveal-up stagger-2" data-reveal>
+                                 <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
+                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
+                                         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                         <circle cx="12" cy="10" r="3"/>
+                                     </svg>
+                                 </div>
+                                 <div>
+                                     <h3 class="text-xl font-bold mb-2">Location</h3>
+                                     <p class="text-white/70">Burambira Heights, Kisoro Rd, Kabale, Uganda</p>
+                                 </div>
+                             </div>
+                             <div class="flex items-start gap-4 reveal-up stagger-3" data-reveal>
+                                 <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
+                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
+                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                     </svg>
+                                 </div>
+                     <div>
+                         <h2 class="text-4xl md:text-6xl mb-8 leading-none tracking-tighter reveal-up stagger-1" data-reveal>Crafting Sounds that <br /><span class="brush-accent">Resonate</span></h2>
+                        <div class="space-y-8 text-white/70 leading-relaxed text-lg max-w-3xl">
+                             <p class="reveal-up stagger-2" data-reveal>
+                                 As the producer behind Good Vibes Africa, my passion lies in transforming raw talent into polished masterpieces.
+                                 Every track we create carries the essence of Kigezi's rich musical heritage while embracing modern production techniques.
+                             </p>
+                             <p class="reveal-up stagger-3" data-reveal>
+                                 Music production is more than technical expertiseâ€”it's about capturing emotion, creating atmosphere,
+                                 and helping artists find their unique voice in a crowded industry.
+                             </p>
+                             <p class="reveal-up stagger-4" data-reveal>
+                                 Join us in this creative journey where your sound meets our vision, and together we craft music that moves the world.
+                             </p>
+                         </div>
+                             </div>
+                             <div class="flex items-start gap-4 reveal-up stagger-4" data-reveal>
+                                 <div class="w-12 h-12 bg-bloom rounded-full flex items-center justify-center flex-shrink-0">
+                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-black">
+                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                         <polyline points="22,6 12,13 2,6"/>
+                                     </svg>
+                                 </div>
+                                 <div>
+                                     <h3 class="text-xl font-bold mb-2">Email</h3>
+                                     <p class="text-white/70">info@goodvibes.africa</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                    <div class="glass-card p-8 reveal-fade stagger-5" data-reveal>
+                         <form id="contact-form" class="space-y-6">
                             <div>
                                 <input type="text" name="name" required placeholder="Your Name" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-bloom" />
                             </div>
@@ -1816,15 +1879,15 @@
                 <img src="assets/WhatsApp Image 2026-05-05 at 12.06.42 (1).jpeg" alt="" class="w-full h-full object-cover ambient-image" />
             </div>
             <div class="container relative z-10">
-                <div class="text-center mb-20">
-                    <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Book <span class="text-outline opacity-30">Your Session</span></h1>
-                    <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Make Music Together</p>
-                </div>
-                <div class="max-w-4xl mx-auto">
-                    <form id="booking-form" class="glass-card p-8 md:p-12">
-                        <div class="grid md:grid-cols-2 gap-12">
-                            <div>
-                                <h2 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Session Details</h2>
+                 <div class="text-center mb-20 reveal-up" data-reveal>
+                     <h1 class="text-5xl md:text-8xl mb-6 leading-none tracking-tighter">Book <span class="text-outline opacity-30">Your Session</span></h1>
+                     <p class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Let's Make Music Together</p>
+                 </div>
+                 <div class="max-w-4xl mx-auto">
+                    <form id="booking-form" class="glass-card p-8 md:p-12 reveal-fade" data-reveal>
+                         <div class="grid md:grid-cols-2 gap-12">
+                             <div>
+                                 <h2 class="text-3xl font-bold mb-6 uppercase tracking-tighter">Session Details</h2>
                                 <div class="space-y-6">
                                     <div>
                                         <label class="block text-sm font-bold uppercase tracking-widest mb-2">Session Type</label>
@@ -1879,24 +1942,24 @@
                 <img src="assets/musician-portrait.jpeg" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-brand-black/80"></div>
-            <div class="container">
-                <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
-                    <div>
-                        <span class="text-bloom tracking-[0.5em] uppercase text-xs font-bold">Sample Track</span>
-                        <h2 class="text-5xl md:text-7xl mt-6 mb-8 leading-none tracking-tighter">
-                            Joe Kahiri <span class="text-outline opacity-30">& Qwela</span>
-                        </h2>
-                        <p class="text-white/50 text-lg leading-relaxed">
-                            Press play to hear the sound and energy behind the Good Vibes Africa creative world.
-                        </p>
-                        <div class="mt-8 flex items-center gap-4 p-4 border border-white/10 bg-white/5 rounded-2xl max-w-md">
-                            <img src="assets/performer-qwela.jpeg" alt="Qwela performance still" class="w-20 h-20 rounded-xl object-cover" />
-                            <div>
-                                <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Now Playing</p>
-                                <p class="font-bold uppercase tracking-tight">Qwela Session Sample</p>
-                                <p class="text-white/50 text-sm">Live performance energy from the Good Vibes orbit.</p>
-                            </div>
-                        </div>
+             <div class="container">
+                 <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                     <div>
+                        <span class="text-bloom tracking-[0.5em] uppercase text-xs font-bold reveal-up" data-reveal>Sample Track</span>
+                        <h2 class="text-5xl md:text-7xl mt-6 mb-8 leading-none tracking-tighter reveal-up stagger-1" data-reveal>
+                             Joe Kahiri <span class="text-outline opacity-30">& Qwela</span>
+                         </h2>
+                        <p class="text-white/50 text-lg leading-relaxed reveal-up stagger-2" data-reveal>
+                             Press play to hear the sound and energy behind the Good Vibes Africa creative world.
+                         </p>
+                        <div class="mt-8 flex items-center gap-4 p-4 border border-white/10 bg-white/5 rounded-2xl max-w-md reveal-up stagger-3" data-reveal>
+                             <img src="assets/performer-qwela.jpeg" alt="Qwela performance still" class="w-20 h-20 rounded-xl object-cover" />
+                             <div>
+                                 <p class="text-[10px] uppercase tracking-[0.35em] text-bloom mb-2">Now Playing</p>
+                                 <p class="font-bold uppercase tracking-tight">Qwela Session Sample</p>
+                                 <p class="text-white/50 text-sm">Live performance energy from the Good Vibes orbit.</p>
+                             </div>
+                         </div>
                     </div>
                     <div class="overflow-hidden rounded-2xl border border-white/10 bg-coal/40 shadow-2xl">
                         <div class="aspect-video">
@@ -1929,7 +1992,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-coal/85 via-coal/95 to-brand-black"></div>
         <!-- Back to Top Button -->
         <button onclick="scrollToTop()" class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-bloom text-brand-black flex items-center justify-center rounded-full hover:scale-110 transition-all shadow-lg z-20" title="Back to Top">
-            <span class="text-xl">↑</span>
+            <span class="text-xl">â†‘</span>
         </button>
 
         <div class="container relative z-10 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -1948,7 +2011,7 @@
                     </div>
                 </a>
                 <p class="text-white/50 text-sm leading-relaxed max-w-xs">
-                    Music is more than sound—it’s a journey of vibrations, energy, and connection. Feel the vibes from Kigezi to the world.
+                    Music is more than soundâ€”itâ€™s a journey of vibrations, energy, and connection. Feel the vibes from Kigezi to the world.
                 </p>
                 <div class="flex gap-4">
                     <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-bloom hover:text-brand-black transition-all">
@@ -1970,15 +2033,6 @@
                 </div>
             </div>
 
-            <div>
-                <h4 class="font-bold text-sm tracking-widest uppercase mb-6 text-lake-blue">Company</h4>
-                <ul class="space-y-4 text-sm text-white/70">
-                    <li><a href="#about" class="hover:text-bloom transition-colors" onclick="navigateTo('about')">About Us</a></li>
-                    <li><a href="#services" class="hover:text-bloom transition-colors" onclick="navigateTo('services')">Services</a></li>
-                    <li><a href="#pricing" class="hover:text-bloom transition-colors" onclick="navigateTo('pricing')">Pricing</a></li>
-                    <li><a href="#booking" class="hover:text-bloom transition-colors" onclick="navigateTo('booking')">Book a Session</a></li>
-                </ul>
-            </div>
 
             <div>
                 <h4 class="font-bold text-sm tracking-widest uppercase mb-6 text-lake-blue">Contact</h4>
@@ -2019,7 +2073,7 @@
 
         <div class="container relative z-10 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-[10px] text-white/40 uppercase tracking-widest text-center md:text-left">
-                <p>© GVA Holdings Limited</p>
+                <p>Â© GVA Holdings Limited</p>
                 <p>GVA 'Good Vibes Africa' Holdings Limited (URSB: 80020001912048)</p>
             </div>
             <div class="flex gap-8 text-[10px] text-white/40 uppercase tracking-widest">
@@ -2031,7 +2085,7 @@
 
     <!-- Audio Player -->
     <div class="audio-player">
-        <div class="glass-card p-4 rounded-lg flex items-center gap-6 w-96 shadow-2xl border-white/10 border-l-4 border-l-bloom">
+        <div class="glass-card p-6 rounded-lg flex items-center gap-6 w-96 shadow-2xl border-white/10 border-l-4 border-l-bloom">
             <div class="relative group overflow-hidden rounded-md shrink-0 w-16 h-16">
                 <img src="assets/performer-qwela.jpeg" alt="Sample song artwork" class="w-full h-full object-cover transition-all duration-500" />
                 <div class="absolute inset-0 bg-brand-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -2046,8 +2100,8 @@
             <div class="flex-1">
                 <div class="flex justify-between items-start mb-2">
                     <div class="overflow-hidden">
-                        <p class="text-xs font-bold uppercase tracking-widest truncate">Kigezi Waves</p>
-                        <p class="text-[10px] text-white/50 truncate">Qwela feat. Joe Kahiri</p>
+                        <p class="text-xs font-bold uppercase tracking-widest">Kigezi Waves</p>
+                        <p class="text-[10px] text-white/50">Qwela feat. Joe Kahiri</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <div class="flex items-end gap-[2px] h-4">
@@ -2275,6 +2329,19 @@
             localStorage.removeItem('theme');
             buildIntroNeonBackground();
             runIntroSequence();
+
+            /* Scroll-reveal (PowerPoint-style entrance) */
+            const revealEls = document.querySelectorAll('[data-reveal]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+            revealEls.forEach(el => observer.observe(el));
+
             window.addEventListener('scroll', handleScroll);
 
             const contactForm = document.getElementById('contact-form');
