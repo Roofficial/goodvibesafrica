@@ -42,7 +42,6 @@ The platform delivers:
 ## 🌍 Modern Experience
 
 * Mobile-first design
-* Dark/Light UI support
 * Fast animations
 * SEO optimized
 * Progressive Web App support
